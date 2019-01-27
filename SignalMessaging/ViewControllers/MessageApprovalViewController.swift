@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2019 Open Whisper Systems. All rights reserved.
+//  Copyright (c) 2018 Open Whisper Systems. All rights reserved.
 //
 
 import Foundation
@@ -78,8 +78,7 @@ public class MessageApprovalViewController: OWSViewController, UITextViewDelegat
         // Recipient Row
         let recipientRow = createRecipientRow()
         view.addSubview(recipientRow)
-        recipientRow.autoPinEdge(toSuperviewSafeArea: .leading)
-        recipientRow.autoPinEdge(toSuperviewSafeArea: .trailing)
+        recipientRow.autoPinWidthToSuperview()
         recipientRow.autoPin(toTopLayoutGuideOf: self, withInset: 0)
 
         // Text View
@@ -92,8 +91,7 @@ public class MessageApprovalViewController: OWSViewController, UITextViewDelegat
         textView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         view.addSubview(textView)
-        textView.autoPinEdge(toSuperviewSafeArea: .leading)
-        textView.autoPinEdge(toSuperviewSafeArea: .trailing)
+        textView.autoPinWidthToSuperview()
         textView.autoPinEdge(.top, to: .bottom, of: recipientRow)
         textView.autoPin(toBottomLayoutGuideOf: self, withInset: 0)
     }

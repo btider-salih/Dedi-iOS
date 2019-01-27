@@ -22,11 +22,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-BOOL IsNoteToSelfEnabled(void)
-{
-    return NO;
-}
-
 ConversationColorName const ConversationColorNameCrimson = @"red";
 ConversationColorName const ConversationColorNameVermilion = @"orange";
 ConversationColorName const ConversationColorNameBurlap = @"brown";
@@ -199,9 +194,6 @@ ConversationColorName const kConversationColorName_Default = ConversationColorNa
 
 - (BOOL)isNoteToSelf
 {
-    if (!IsNoteToSelfEnabled()) {
-        return NO;
-    }
     return (!self.isGroupThread && self.contactIdentifier != nil &&
         [self.contactIdentifier isEqualToString:self.tsAccountManager.localNumber]);
 }

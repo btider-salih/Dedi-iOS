@@ -493,7 +493,7 @@ typedef void (^ProfileManagerFailureBlock)(NSError *error);
                                                     name:@"Content-Type"];
                         NSData *encryptedAvatarData = [self encryptProfileData:avatarData];
                         OWSAssertDebug(encryptedAvatarData.length > 0);
-                        [formData appendPartWithFormData:encryptedAvatarData name:@"file"];
+                        [formData appendPartWithFileData:encryptedAvatarData name:@"file" fileName:@"file" mimeType:OWSMimeTypeApplicationOctetStream];
 
                         OWSLogVerbose(@"constructed body");
                     }

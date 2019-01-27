@@ -142,12 +142,7 @@ class PhotoCollectionContents {
 
     private func requestImageDataSource(for asset: PHAsset) -> Promise<(dataSource: DataSource, dataUTI: String)> {
         return Promise { resolver in
-
-            let options: PHImageRequestOptions = PHImageRequestOptions()
-            options.isNetworkAccessAllowed = true
-
-            _ = imageManager.requestImageData(for: asset, options: options) { imageData, dataUTI, orientation, info in
-
+            _ = imageManager.requestImageData(for: asset, options: nil) { imageData, dataUTI, _, _ in
                 guard let imageData = imageData else {
                     resolver.reject(PhotoLibraryError.assertionError(description: "imageData was unexpectedly nil"))
                     return
@@ -171,10 +166,7 @@ class PhotoCollectionContents {
     private func requestVideoDataSource(for asset: PHAsset) -> Promise<(dataSource: DataSource, dataUTI: String)> {
         return Promise { resolver in
 
-            let options: PHVideoRequestOptions = PHVideoRequestOptions()
-            options.isNetworkAccessAllowed = true
-
-            _ = imageManager.requestExportSession(forVideo: asset, options: options, exportPreset: AVAssetExportPresetMediumQuality) { exportSession, foo in
+            _ = imageManager.requestExportSession(forVideo: asset, options: nil, exportPreset: AVAssetExportPresetMediumQuality) { exportSession, _ in
 
                 guard let exportSession = exportSession else {
                     resolver.reject(PhotoLibraryError.assertionError(description: "exportSession was unexpectedly nil"))

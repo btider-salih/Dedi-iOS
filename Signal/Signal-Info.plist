@@ -5,16 +5,16 @@
 	<key>BuildDetails</key>
 	<dict>
 		<key>CarthageVersion</key>
-		<string>0.31.2</string>
+		<string>0.29.0</string>
 		<key>OSXVersion</key>
-		<string>10.14.2</string>
+		<string>10.14.1</string>
 		<key>WebRTCCommit</key>
 		<string>aa8bee9bd6f69e388a9ca7506b8702ef8ab7f195 M71</string>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Dedi</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
@@ -47,7 +47,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.34.0.26</string>
+	<string>2.34.0.14</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LOGS_EMAIL</key>
@@ -62,13 +62,6 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>amazonaws.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
 			<key>api-staging.directory.signal.org </key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
@@ -83,14 +76,18 @@
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
-			<key>signal.org</key>
+			<key>btk.gov.tr</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
 			</dict>
-			<key>whispersystems.org</key>
+			<key>dedi.com.tr</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -148,6 +145,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>

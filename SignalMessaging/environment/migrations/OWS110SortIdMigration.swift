@@ -49,13 +49,8 @@ public class OWS110SortIdMigration: OWSDatabaseMigration {
             let totalCount: UInt = legacySorting.numberOfItemsInAllGroups()
             var completedCount: UInt = 0
 
-            var allGroups = [String]()
-            legacySorting.enumerateGroups { group, _ in
-                allGroups.append(group)
-            }
-
             var seenGroups: Set<String> = Set()
-            for group in allGroups {
+            legacySorting.enumerateGroups { group, _ in
                 autoreleasepool {
                     // Sanity Check #1
                     // Make sure our enumeration is monotonically increasing.
@@ -74,30 +69,24 @@ public class OWS110SortIdMigration: OWSDatabaseMigration {
                     }
                     seenGroups.insert(group)
 
-                    var groupKeys = [String]()
-                    legacySorting.enumerateKeys(inGroup: group, using: { (_, key, _, _) in
-                        groupKeys.append(key)
-                    })
-                    let groupKeyBatchSize: Int = 1024
-                    for batch in groupKeys.chunked(by: groupKeyBatchSize) {
+                    legacySorting.enumerateKeysAndObjects(inGroup: group) { (_, _, object, _, _) in
                         autoreleasepool {
-                            for uniqueId in batch {
-                                guard let interaction = TSInteraction.fetch(uniqueId: uniqueId, transaction: transaction) else {
-                                    owsFailDebug("Could not load interaction: \(uniqueId)")
-                                    return
-                                }
-                                if interaction.timestampForLegacySorting() < previousTimestampForLegacySorting {
-                                    owsFailDebug("unexpected object ordering previousTimestampForLegacySorting: \(previousTimestampForLegacySorting) interaction.timestampForLegacySorting: \(interaction.timestampForLegacySorting())")
-                                }
-                                previousTimestampForLegacySorting = interaction.timestampForLegacySorting()
+                            guard let interaction = object as? TSInteraction else {
+                                owsFailDebug("unexpected object: \(type(of: object))")
+                                return
+                            }
 
-                                interaction.saveNextSortId(transaction: transaction)
+                            guard interaction.timestampForLegacySorting() >= previousTimestampForLegacySorting else {
+                                owsFail("unexpected object ordering previousTimestampForLegacySorting: \(previousTimestampForLegacySorting) interaction.timestampForLegacySorting: \(interaction.timestampForLegacySorting)")
+                            }
+                            previousTimestampForLegacySorting = interaction.timestampForLegacySorting()
 
-                                completedCount += 1
-                                if completedCount % 100 == 0 {
-                                    // Legit usage of legacy sorting for migration to new sorting
-                                    Logger.info("thread: \(interaction.uniqueThreadId), timestampForLegacySorting:\(interaction.timestampForLegacySorting()), sortId: \(interaction.sortId) totalCount: \(totalCount), completedcount: \(completedCount)")
-                                }
+                            interaction.saveNextSortId(transaction: transaction)
+
+                            completedCount += 1
+                            if completedCount % 100 == 0 {
+                                // Legit usage of legacy sorting for migration to new sorting
+                                Logger.info("thread: \(interaction.uniqueThreadId), timestampForLegacySorting:\(interaction.timestampForLegacySorting()), sortId: \(interaction.sortId) totalCount: \(totalCount), completedcount: \(completedCount)")
                             }
                         }
                     }

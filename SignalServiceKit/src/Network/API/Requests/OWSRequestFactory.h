@@ -64,6 +64,7 @@ typedef NS_ENUM(NSUInteger, TSVerificationTransport) { TSVerificationTransportVo
                                      udAccessKey:(nullable SMKUDAccessKey *)udAccessKey;
 
 + (TSRequest *)verifyCodeRequestWithVerificationCode:(NSString *)verificationCode
+                                        signalingKey:(NSString *)signalingKey
                                            forNumber:(NSString *)phoneNumber
                                                  pin:(nullable NSString *)pin
                                              authKey:(NSString *)authKey;

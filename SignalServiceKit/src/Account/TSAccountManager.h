@@ -68,6 +68,7 @@ typedef NS_ENUM(NSUInteger, OWSRegistrationState) {
  */
 + (nullable NSString *)signalingKey;
 - (nullable NSString *)signalingKey;
++ (NSString *)generateNewSignalingKeyToken;
 
 /**
  *  The server auth token allows the Signal client to connect to the Signal server

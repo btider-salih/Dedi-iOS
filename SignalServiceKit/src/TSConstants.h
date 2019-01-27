@@ -18,20 +18,26 @@ typedef NS_ENUM(NSInteger, TSWhisperMessageType) {
 
 #define textSecureHTTPTimeOut 10
 
-#define kLegalTermsUrlString @"https://signal.org/legal/"
+#define kLegalTermsUrlString @"http://dedi.link"
 
 //#ifndef DEBUG
 
 // Production
-#define textSecureWebSocketAPI @"wss://textsecure-service.whispersystems.org/v1/websocket/"
-#define textSecureServerURL @"https://textsecure-service.whispersystems.org/"
-#define textSecureCDNServerURL @"https://cdn.signal.org"
-// Use same reflector for service and CDN
-#define textSecureServiceReflectorHost @"textsecure-service-reflected.whispersystems.org"
-#define textSecureCDNReflectorHost @"textsecure-service-reflected.whispersystems.org"
+#define textSecureWebSocketAPI @"wss://dedi.btk.gov.tr:443/v1/websocket/"
+#define textSecureServerURL @"https://dedi.btk.gov.tr:443/"
+#define textSecureCDNServerURL @"https://dedi.btk.gov.tr:80/dedi"
+#define textSecureServiceReflectorHost @"https://dedi.btk.gov.tr:443/"
+#define textSecureCDNReflectorHost @"https://dedi.btk.gov.tr:80/dedi"
+
 #define contactDiscoveryURL @"https://api.directory.signal.org"
 #define kUDTrustRoot @"BXu6QIKVz5MA8gstzfOgRQGqyLqOwNKHL6INkv3IHWMF"
 #define USING_PRODUCTION_SERVICE
+
+//#define textSecureWebSocketAPI @"wss://test.dedi.com.tr:443/v1/websocket/"
+//#define textSecureServerURL @"https://test.dedi.com.tr:443/"
+//#define textSecureCDNServerURL @"https://test.dedi.com.tr:443/dedi"
+//#define textSecureServiceReflectorHost @"https://test.dedi.com.tr:443/"
+//#define textSecureCDNReflectorHost @"https://test.dedi.com.tr:443/dedi"
 
 //#else
 
@@ -64,6 +70,6 @@ BOOL IsUsingProductionService(void);
 #define textSecureProfileAvatarFormAPI @"v1/profile/form/avatar"
 #define textSecure2FAAPI @"/v1/accounts/pin"
 
-#define SignalApplicationGroup @"group.org.whispersystems.signal.group"
+#define SignalApplicationGroup @"group.org.btider.dediapp.group"
 
 #endif

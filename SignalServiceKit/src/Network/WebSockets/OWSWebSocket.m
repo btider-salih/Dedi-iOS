@@ -778,7 +778,8 @@ NSString *const kNSNotification_OWSWebSocketStateDidChange = @"kNSNotification_O
         dispatch_async(self.serialQueue, ^{
             BOOL success = NO;
             @try {
-                BOOL useSignalingKey = [message.headers containsObject:@"X-Signal-Key: true"];
+                BOOL useSignalingKey = true;
+                //[message.headers containsObject:@"X-Signal-Key: true"];
                 NSData *_Nullable decryptedPayload;
                 if (useSignalingKey) {
                     NSString *_Nullable signalingKey = TSAccountManager.signalingKey;

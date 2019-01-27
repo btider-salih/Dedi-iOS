@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2019 Open Whisper Systems. All rights reserved.
+//  Copyright (c) 2018 Open Whisper Systems. All rights reserved.
 //
 
 import Foundation
@@ -10,9 +10,6 @@ public class MediaAlbumCellView: UIStackView {
 
     @objc
     public let itemViews: [ConversationMediaView]
-
-    @objc
-    public var moreItemsView: ConversationMediaView?
 
     private static let kSpacingPts: CGFloat = 2
     private static let kMaxItems = 5
@@ -44,6 +41,8 @@ public class MediaAlbumCellView: UIStackView {
     }
 
     private func createContents(maxMessageWidth: CGFloat) {
+        var moreItemViews = [ConversationMediaView]()
+
         switch itemViews.count {
         case 0:
             owsFailDebug("No item views.")
@@ -130,7 +129,7 @@ public class MediaAlbumCellView: UIStackView {
                     return
                 }
 
-                moreItemsView = lastView
+                moreItemViews.append(lastView)
 
                 let tintView = UIView()
                 tintView.backgroundColor = UIColor(white: 0, alpha: 0.4)
@@ -152,7 +151,7 @@ public class MediaAlbumCellView: UIStackView {
         }
 
         for itemView in itemViews {
-            guard moreItemsView != itemView else {
+            guard !moreItemViews.contains(itemView) else {
                 // Don't display the caption indicator on
                 // the "more" item, if any.
                 continue
@@ -277,10 +276,5 @@ public class MediaAlbumCellView: UIStackView {
             bestDistance = distance
         }
         return bestMediaView
-    }
-
-    @objc
-    public func isMoreItemsView(mediaView: ConversationMediaView) -> Bool {
-        return moreItemsView == mediaView
     }
 }

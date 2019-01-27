@@ -1086,12 +1086,6 @@
 /* Label for crop button in image editor. */
 "IMAGE_EDITOR_CROP_BUTTON" = "Crop";
 
-/* Momentarily shown to the user when attempting to select more images than is allowed. Embeds {{max number of items}} that can be shared. */
-"IMAGE_PICKER_CAN_SELECT_NO_MORE_TOAST_FORMAT" = "You can't share more than %@ items.";
-
-/* alert title */
-"IMAGE_PICKER_FAILED_TO_PROCESS_ATTACHMENTS" = "Failed to select attachment.";
-
 /* Call setup status label */
 "IN_CALL_CONNECTING" = "Connecting…";
 
@@ -2407,6 +2401,9 @@
 
 /* Title for the alert indicating that user should upgrade iOS. */
 "UPGRADE_IOS_ALERT_TITLE" = "Upgrade iOS";
+
+/* No comment provided by engineer. */
+"Upgrading Signal ..." = "Upgrading Signal…";
 
 /* button text for back button on verification view */
 "VERIFICATION_BACK_BUTTON" = "Back";

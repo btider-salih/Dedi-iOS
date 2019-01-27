@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2019 Open Whisper Systems. All rights reserved.
+//  Copyright (c) 2018 Open Whisper Systems. All rights reserved.
 //
 
 #import "ConversationViewItem.h"
@@ -9,6 +9,7 @@
 #import "OWSMessageHeaderView.h"
 #import "OWSSystemMessageCell.h"
 #import "Signal-Swift.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 #import <SignalMessaging/OWSUnreadIndicator.h>
 #import <SignalServiceKit/NSData+Image.h>
 #import <SignalServiceKit/NSString+SSK.h>
@@ -63,16 +64,6 @@ NSString *NSStringForOWSMessageCellType(OWSMessageCellType cellType)
 
     return self;
 }
-
-- (BOOL)isFailedDownload
-{
-    if (![self.attachment isKindOfClass:[TSAttachmentPointer class]]) {
-        return NO;
-    }
-    TSAttachmentPointer *attachmentPointer = (TSAttachmentPointer *)self.attachment;
-    return attachmentPointer.state == TSAttachmentPointerStateFailed;
-}
-
 @end
 
 #pragma mark -
@@ -1019,57 +1010,39 @@ NSString *NSStringForOWSMessageCellType(OWSMessageCellType cellType)
             break;
         }
         case OWSMessageCellType_MediaAlbum: {
-            [self saveMediaAlbumItems];
-            break;
+            // TODO: Use PHPhotoLibrary.
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            for (ConversationMediaAlbumItem *mediaAlbumItem in self.mediaAlbumItems) {
+                if (!mediaAlbumItem.attachmentStream) {
+                    continue;
+                }
+                if (!mediaAlbumItem.attachmentStream.isValidVisualMedia) {
+                    continue;
+                }
+                if (mediaAlbumItem.attachmentStream.isImage || mediaAlbumItem.attachmentStream.isAnimated) {
+                    NSData *data = [NSData dataWithContentsOfURL:[mediaAlbumItem.attachmentStream originalMediaURL]];
+                    if (!data) {
+                        OWSFailDebug(@"Could not load image data");
+                        continue;
+                    }
+                    [library writeImageDataToSavedPhotosAlbum:data
+                                                     metadata:nil
+                                              completionBlock:^(NSURL *assetURL, NSError *error) {
+                                                  if (error) {
+                                                      OWSLogWarn(@"Error saving image to photo album: %@", error);
+                                                  }
+                                              }];
+                }
+                if (mediaAlbumItem.attachmentStream.isVideo) {
+                    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(
+                            mediaAlbumItem.attachmentStream.originalFilePath)) {
+                        UISaveVideoAtPathToSavedPhotosAlbum(
+                            mediaAlbumItem.attachmentStream.originalFilePath, self, nil, nil);
+                    }
+                }
+            }
         }
     }
-}
-
-- (void)saveMediaAlbumItems
-{
-    // We need to do these writes serially to avoid "write busy" errors
-    // from too many concurrent asset saves.
-    [self saveMediaAlbumItems:[self.mediaAlbumItems mutableCopy]];
-}
-
-- (void)saveMediaAlbumItems:(NSMutableArray<ConversationMediaAlbumItem *> *)mediaAlbumItems
-{
-    if (mediaAlbumItems.count < 1) {
-        return;
-    }
-    ConversationMediaAlbumItem *mediaAlbumItem = mediaAlbumItems.firstObject;
-    [mediaAlbumItems removeObjectAtIndex:0];
-
-    if (!mediaAlbumItem.attachmentStream || !mediaAlbumItem.attachmentStream.isValidVisualMedia) {
-        // Skip this item.
-    } else if (mediaAlbumItem.attachmentStream.isImage || mediaAlbumItem.attachmentStream.isAnimated) {
-        [[PHPhotoLibrary sharedPhotoLibrary]
-            performChanges:^{
-                [PHAssetChangeRequest
-                    creationRequestForAssetFromImageAtFileURL:mediaAlbumItem.attachmentStream.originalMediaURL];
-            }
-            completionHandler:^(BOOL success, NSError *error) {
-                if (error || !success) {
-                    OWSFailDebug(@"Image save failed: %@", error);
-                }
-                [self saveMediaAlbumItems:mediaAlbumItems];
-            }];
-        return;
-    } else if (mediaAlbumItem.attachmentStream.isVideo) {
-        [[PHPhotoLibrary sharedPhotoLibrary]
-            performChanges:^{
-                [PHAssetChangeRequest
-                    creationRequestForAssetFromVideoAtFileURL:mediaAlbumItem.attachmentStream.originalMediaURL];
-            }
-            completionHandler:^(BOOL success, NSError *error) {
-                if (error || !success) {
-                    OWSFailDebug(@"Video save failed: %@", error);
-                }
-                [self saveMediaAlbumItems:mediaAlbumItems];
-            }];
-        return;
-    }
-    return [self saveMediaAlbumItems:mediaAlbumItems];
 }
 
 - (void)deleteAction
@@ -1107,8 +1080,11 @@ NSString *NSStringForOWSMessageCellType(OWSMessageCellType cellType)
     OWSAssertDebug(self.mediaAlbumItems.count > 0);
 
     for (ConversationMediaAlbumItem *mediaAlbumItem in self.mediaAlbumItems) {
-        if (mediaAlbumItem.isFailedDownload) {
-            return YES;
+        if ([mediaAlbumItem.attachment isKindOfClass:[TSAttachmentPointer class]]) {
+            TSAttachmentPointer *attachmentPointer = (TSAttachmentPointer *)mediaAlbumItem.attachment;
+            if (attachmentPointer.state == TSAttachmentPointerStateFailed) {
+                return YES;
+            }
         }
     }
     return NO;

@@ -145,7 +145,7 @@ class MediaPageViewController: UIPageViewController, UIPageViewControllerDataSou
         // e.g. when getting to media details via message details screen, there's only
         // one "Page" so the bounce doesn't make sense.
         pagerScrollView.isScrollEnabled = sliderEnabled
-        pagerScrollViewContentOffsetObservation = pagerScrollView.observe(\.contentOffset, options: [.new]) { [weak self] _, change in
+        pagerScrollViewContentOffsetObservation = pagerScrollView.observe(\.contentOffset, options: [.new]) { [weak self] object, change in
             guard let strongSelf = self else { return }
             strongSelf.pagerScrollView(strongSelf.pagerScrollView, contentOffsetDidChange: change)
         }
@@ -607,16 +607,10 @@ class MediaPageViewController: UIPageViewController, UIPageViewControllerDataSou
             return
         }
 
-        if IsLandscapeOrientationEnabled() {
-            mediaGalleryDataSource.dismissMediaDetailViewController(self,
-                                                                    animated: isAnimated,
-                                                                    completion: completion)
-        } else {
-            mediaGalleryDataSource.dismissMediaDetailViewController(self, animated: isAnimated) {
-                UIDevice.current.ows_setOrientation(.portrait)
-                completion?()
-            }
-        }
+        mediaGalleryDataSource.dismissMediaDetailViewController(self,
+                                                                animated: isAnimated,
+                                                                completion: completion)
+
     }
 
     // MARK: MediaDetailViewControllerDelegate

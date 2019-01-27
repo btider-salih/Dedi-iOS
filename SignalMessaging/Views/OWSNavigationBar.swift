@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2019 Open Whisper Systems. All rights reserved.
+//  Copyright (c) 2018 Open Whisper Systems. All rights reserved.
 //
 
 import Foundation
@@ -156,13 +156,11 @@ public class OWSNavigationBar: UINavigationBar {
     }
 
     public override func layoutSubviews() {
-        guard CurrentAppContext().isMainApp else {
-            super.layoutSubviews()
-            return
-        }
-        guard OWSWindowManager.shared().hasCall() else {
-            super.layoutSubviews()
-            return
+        if CurrentAppContext().isMainApp {
+            guard OWSWindowManager.shared().hasCall() else {
+                super.layoutSubviews()
+                return
+            }
         }
 
         guard #available(iOS 11, *) else {

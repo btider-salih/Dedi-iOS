@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Signal</string>
+	<string>Dedi</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -19,28 +19,25 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.34.0</string>
 	<key>CFBundleVersion</key>
-	<string>2.34.0.26</string>
+	<string>2.34.0.14</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>amazonaws.com</key>
+			<key>btk.gov.tr</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>signal.org</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>whispersystems.org</key>
+			<key>dedi.com.tr</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -60,8 +57,8 @@
                 SUBQUERY (
                 $extensionItem.attachments,
                 $attachment,
-                ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.data"
-                || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
+                ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.data&quot;
+                || ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
                 ).@count &gt;= 1
                 ).@count == 1
             </string>

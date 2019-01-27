@@ -220,10 +220,11 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *path = [textSecureAccountsAPI stringByAppendingString:textSecureAttributesAPI];
 
     NSString *authKey = self.tsAccountManager.serverAuthToken;
+    NSString *signalingKey = self.tsAccountManager.signalingKey;
     OWSAssertDebug(authKey.length > 0);
     NSString *_Nullable pin = [self.ows2FAManager pinCode];
 
-    NSDictionary<NSString *, id> *accountAttributes = [self accountAttributesWithPin:pin authKey:authKey];
+    NSDictionary<NSString *, id> *accountAttributes = [self accountAttributesWithPin:pin authKey:authKey signalingKey:signalingKey];
 
     return [TSRequest requestWithUrl:[NSURL URLWithString:path] method:@"PUT" parameters:accountAttributes];
 }
@@ -288,6 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 + (TSRequest *)verifyCodeRequestWithVerificationCode:(NSString *)verificationCode
+                                        signalingKey:(NSString *)signalingKey
                                            forNumber:(NSString *)phoneNumber
                                                  pin:(nullable NSString *)pin
                                              authKey:(NSString *)authKey
@@ -299,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *path = [NSString stringWithFormat:@"%@/code/%@", textSecureAccountsAPI, verificationCode];
 
     NSMutableDictionary<NSString *, id> *accountAttributes =
-        [[self accountAttributesWithPin:pin authKey:authKey] mutableCopy];
+        [[self accountAttributesWithPin:pin authKey:authKey signalingKey:signalingKey] mutableCopy];
     [accountAttributes removeObjectForKey:@"AuthKey"];
 
     TSRequest *request =
@@ -312,6 +314,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSDictionary<NSString *, id> *)accountAttributesWithPin:(nullable NSString *)pin
                                                    authKey:(NSString *)authKey
+                                              signalingKey:(NSString *)signalingKey
 {
     OWSAssertDebug(authKey.length > 0);
     uint32_t registrationId = [self.tsAccountManager getOrGenerateRegistrationId];
@@ -326,7 +329,6 @@ NS_ASSUME_NONNULL_BEGIN
         OWSFail(@"Could not determine UD access key: %@.", error);
     }
     BOOL allowUnrestrictedUD = [self.udManager shouldAllowUnrestrictedAccessLocal] && udAccessKey != nil;
-
     // We no longer include the signalingKey.
     NSMutableDictionary *accountAttributes = [@{
         @"AuthKey" : authKey,
@@ -335,6 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
         @"fetchesMessages" : @(isManualMessageFetchEnabled), // devices that don't support push must tell the server
                                                              // they fetch messages manually
         @"registrationId" : [NSString stringWithFormat:@"%i", registrationId],
+        @"signalingKey"   : signalingKey,
         @"unidentifiedAccessKey" : udAccessKey.keyData.base64EncodedString,
         @"unrestrictedUnidentifiedAccess" : @(allowUnrestrictedUD),
     } mutableCopy];

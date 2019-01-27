@@ -452,10 +452,8 @@ static NSTimeInterval launchStartedAt;
         return YES;
     };
 
-    YapDatabaseOptions *dbOptions = [OWSStorage defaultDatabaseOptions];
     error = [YapDatabaseCryptoUtils convertDatabaseIfNecessary:databaseFilePath
                                               databasePassword:databasePassword
-                                                       options:dbOptions
                                                recordSaltBlock:recordSaltBlock];
     if (!error) {
         [OWSStorage removeLegacyPassphrase];
@@ -1327,8 +1325,6 @@ static NSTimeInterval launchStartedAt;
     self.window.rootViewController = navigationController;
 
     [AppUpdateNag.sharedInstance showAppUpgradeNagIfNecessary];
-
-    [UIViewController attemptRotationToDeviceOrientation];
 }
 
 #pragma mark - status bar touches
