@@ -5,10 +5,10 @@
 "ACCEPT_NEW_IDENTITY_ACTION" = "Přijmout nové bezpečnostní číslo";
 
 /* Label for 'audio call' button in contact view. */
-"ACTION_AUDIO_CALL" = "Hovor Signal";
+"ACTION_AUDIO_CALL" = "Hovor Dedi";
 
 /* Label for 'invite' button in contact view. */
-"ACTION_INVITE" = "Pozvat do aplikace Signal";
+"ACTION_INVITE" = "Pozvat do aplikace Dedi";
 
 /* Label for 'send message' button in contact view.
    Label for button that lets you send a message to a contact. */
@@ -69,7 +69,7 @@
 "APN_MESSAGE_IN_GROUP_DETAILED" = "%@ ve skupině %@: %@";
 
 /* Message for the 'app launch failed' alert. */
-"APP_LAUNCH_FAILURE_ALERT_MESSAGE" = "Aplikaci Signal nelze spustit. Odešlete prosím debug log na support@signal.org, pokusíme se problém opravit.";
+"APP_LAUNCH_FAILURE_ALERT_MESSAGE" = "Aplikaci Dedi nelze spustit. Odešlete prosím debug log na dedidestek@btider.org.tr, pokusíme se problém opravit.";
 
 /* Title for the 'app launch failed' alert. */
 "APP_LAUNCH_FAILURE_ALERT_TITLE" = "Chyba";
@@ -84,13 +84,13 @@
 "APP_UPDATE_NAG_ALERT_MESSAGE_FORMAT" = "V App Store je dostupná verze %@.";
 
 /* Title for the 'new app version available' alert. */
-"APP_UPDATE_NAG_ALERT_TITLE" = "Je dostupná nová verze aplikace Signal.";
+"APP_UPDATE_NAG_ALERT_TITLE" = "Je dostupná nová verze aplikace Dedi.";
 
 /* Label for the 'update' button in the 'new app version available' alert. */
 "APP_UPDATE_NAG_ALERT_UPDATE_BUTTON" = "Aktualizovat";
 
 /* Name of application */
-"APPLICATION_NAME" = "Signal";
+"APPLICATION_NAME" = "Dedi";
 
 /* Pressing this button moves a thread from the inbox to the archive */
 "ARCHIVE_ACTION" = "Archivovat";
@@ -318,7 +318,7 @@
 "CALL_AGAIN_BUTTON_TITLE" = "Zavolat znovu";
 
 /* Alert message when calling and permissions for microphone are missing */
-"CALL_AUDIO_PERMISSION_MESSAGE" = "You can enable microphone access in the iOS Settings app to make calls and record voice messages in Signal.";
+"CALL_AUDIO_PERMISSION_MESSAGE" = "You can enable microphone access in the iOS Settings app to make calls and record voice messages in Dedi.";
 
 /* Alert title when calling and permissions for microphone are missing */
 "CALL_AUDIO_PERMISSION_TITLE" = "Vyžadován přístup k mikrofonu";
@@ -330,7 +330,7 @@
 "CALL_SCREEN_STATUS_NO_ANSWER" = "No Answer";
 
 /* embeds {{Call Status}} in call screen label. For ongoing calls, {{Call Status}} is a seconds timer like 01:23, otherwise {{Call Status}} is a short text like 'Ringing', 'Busy', or 'Failed Call' */
-"CALL_STATUS_FORMAT" = "Signal %@";
+"CALL_STATUS_FORMAT" = "Dedi %@";
 
 /* Label for call button for alert offering to call a user. */
 "CALL_USER_ALERT_CALL_BUTTON" = "Zavolat";
@@ -357,10 +357,10 @@
 "CALL_VIEW_MUTE_LABEL" = "Ztlumit";
 
 /* Reminder to the user of the benefits of enabling CallKit and disabling CallKit privacy. */
-"CALL_VIEW_SETTINGS_NAG_DESCRIPTION_ALL" = "You can enable iOS Call Integration in your Signal privacy settings to answer incoming calls from your lock screen.";
+"CALL_VIEW_SETTINGS_NAG_DESCRIPTION_ALL" = "You can enable iOS Call Integration in your Dedi privacy settings to answer incoming calls from your lock screen.";
 
 /* Reminder to the user of the benefits of disabling CallKit privacy. */
-"CALL_VIEW_SETTINGS_NAG_DESCRIPTION_PRIVACY" = "You can enable iOS Call Integration in your Signal privacy settings to see the name and phone number for incoming calls.";
+"CALL_VIEW_SETTINGS_NAG_DESCRIPTION_PRIVACY" = "You can enable iOS Call Integration in your Dedi privacy settings to see the name and phone number for incoming calls.";
 
 /* Label for button that dismiss the call view's settings nag. */
 "CALL_VIEW_SETTINGS_NAG_NOT_NOW_BUTTON" = "Nyní ne";
@@ -384,7 +384,7 @@
 "CALLBACK_BUTTON_TITLE" = "Zavolat zpět";
 
 /* The generic name used for calls if CallKit privacy is enabled */
-"CALLKIT_ANONYMOUS_CONTACT_NAME" = "Uživatel aplikace Signal";
+"CALLKIT_ANONYMOUS_CONTACT_NAME" = "Uživatel aplikace Dedi";
 
 /* Message for alert explaining that a user cannot be verified. */
 "CANT_VERIFY_IDENTITY_ALERT_MESSAGE" = "Tento uživatel nemůže být ověřen, dokud neodešlete zprávu.";
@@ -408,13 +408,13 @@
 "CHECK_FOR_BACKUP_RESTORE" = "Obnovení";
 
 /* Error indicating that the app could not determine that user's iCloud account status */
-"CLOUDKIT_STATUS_COULD_NOT_DETERMINE" = "Signal could not determine your iCloud account status. Sign in to your iCloud Account in the iOS settings app to backup your Signal data.";
+"CLOUDKIT_STATUS_COULD_NOT_DETERMINE" = "Dedi could not determine your iCloud account status. Sign in to your iCloud Account in the iOS settings app to backup your Dedi data.";
 
 /* Error indicating that user does not have an iCloud account. */
-"CLOUDKIT_STATUS_NO_ACCOUNT" = "No iCloud Account. Sign in to your iCloud Account in the iOS settings app to backup your Signal data.";
+"CLOUDKIT_STATUS_NO_ACCOUNT" = "No iCloud Account. Sign in to your iCloud Account in the iOS settings app to backup your Dedi data.";
 
 /* Error indicating that the app was prevented from accessing the user's iCloud account. */
-"CLOUDKIT_STATUS_RESTRICTED" = "Signal was denied access your iCloud account for backups. Grant Signal access to your iCloud Account in the iOS settings app to backup your Signal data.";
+"CLOUDKIT_STATUS_RESTRICTED" = "Dedi was denied access your iCloud account for backups. Grant Dedi access to your iCloud Account in the iOS settings app to backup your Dedi data.";
 
 /* The first of two messages demonstrating the chosen conversation color, by rendering this message in an outgoing message bubble. */
 "COLOR_PICKER_DEMO_MESSAGE_1" = "Choose the color of outgoing messages in this conversation.";
@@ -438,7 +438,7 @@
 "COMPOSE_MESSAGE_INVITE_SECTION_TITLE" = "Pozvat";
 
 /* Multi-line label explaining why compose-screen contact picker is empty. */
-"COMPOSE_SCREEN_MISSING_CONTACTS_PERMISSION" = "You can enable contacts access in the iOS Settings app to see which of your contacts are Signal users.";
+"COMPOSE_SCREEN_MISSING_CONTACTS_PERMISSION" = "You can enable contacts access in the iOS Settings app to see which of your contacts are Dedi users.";
 
 /* No comment provided by engineer. */
 "CONFIRM_ACCOUNT_DESTRUCTION_TEXT" = "This will reset the application by deleting your messages and unregistering you with the server. The app will close after this process is complete.";
@@ -733,9 +733,9 @@
 "DEREGISTRATION_REREGISTER_WITH_SAME_PHONE_NUMBER" = "Znovu zaregistrovat toto telefonní číslo";
 
 /* Label warning the user that they have been de-registered. */
-"DEREGISTRATION_WARNING" = "Zařízení již není registrováno. Vaše telefonní číslo může být registrováno v aplikaci Signal na jiném zařízení. Klepněte pro opětovnou registraci.";
+"DEREGISTRATION_WARNING" = "Zařízení již není registrováno. Vaše telefonní číslo může být registrováno v aplikaci Dedi na jiném zařízení. Klepněte pro opětovnou registraci.";
 
-/* {{Short Date}} when device last communicated with Signal Server. */
+/* {{Short Date}} when device last communicated with Dedi Server. */
 "DEVICE_LAST_ACTIVE_AT_LABEL" = "Naposledy aktivní: %@";
 
 /* {{Short Date}} when device was linked. */
@@ -765,11 +765,11 @@
 /* Section title for the 'domain fronting country' view. */
 "DOMAIN_FRONTING_COUNTRY_VIEW_SECTION_HEADER" = "Umístění pro obcházení cenzury";
 
-/* Alert body for when the user has just tried to edit a contacts after declining to give Signal contacts permissions */
+/* Alert body for when the user has just tried to edit a contacts after declining to give Dedi contacts permissions */
 "EDIT_CONTACT_WITHOUT_CONTACTS_PERMISSION_ALERT_BODY" = "You can enable access in the iOS Settings app.";
 
-/* Alert title for when the user has just tried to edit a contacts after declining to give Signal contacts permissions */
-"EDIT_CONTACT_WITHOUT_CONTACTS_PERMISSION_ALERT_TITLE" = "Aplikace Signal pro úpravu informací kontaktu vyžaduje přístup ke kontaktům.";
+/* Alert title for when the user has just tried to edit a contacts after declining to give Dedi contacts permissions */
+"EDIT_CONTACT_WITHOUT_CONTACTS_PERMISSION_ALERT_TITLE" = "Aplikace Dedi pro úpravu informací kontaktu vyžaduje přístup ke kontaktům.";
 
 /* table cell label in conversation settings */
 "EDIT_GROUP_ACTION" = "Upravit skupinu";
@@ -804,11 +804,11 @@
 /* No comment provided by engineer. */
 "EDIT_TXT" = "Upravit";
 
-/* body of email sent to contacts when inviting to install Signal. Embeds {{link to install Signal}} and {{link to the Signal home page}} */
-"EMAIL_INVITE_BODY" = "Ahoj,\n\nPoslední dobou jsem začal na svém iPhonu používat Signal, aby moje konverzace zůstaly soukromé. Byl bych rád, kdyby sis ho také nainstaloval, aby by naše zprávy a hovory nemohl sledovat nikdo nepovolaný.\n\nSignal je dostupný pro iPhony a Android. Získáš ho zde: %@\n\nSignal funguje stejně, jako tvá stávající aplikace na posílání zpráv. Můžeme posílat obrázky, videa, pořádat hovory a vytvářet skupinové chaty. A nejlepší na tom je, že je nikdo jiný nemůže vidět, ani lidé, co vyvíjí Signal!\n\nO Open Whisper Systems, lidech, kteří vyvíjí Signal, se můžeš dočíst tady %@";
+/* body of email sent to contacts when inviting to install Dedi. Embeds {{link to install Dedi}} and {{link to the Dedi home page}} */
+"EMAIL_INVITE_BODY" = "Ahoj,\n\nPoslední dobou jsem začal na svém iPhonu používat Dedi, aby moje konverzace zůstaly soukromé. Byl bych rád, kdyby sis ho také nainstaloval, aby by naše zprávy a hovory nemohl sledovat nikdo nepovolaný.\n\nDedi je dostupný pro iPhony a Android. Získáš ho zde: %@\n\nDedi funguje stejně, jako tvá stávající aplikace na posílání zpráv. Můžeme posílat obrázky, videa, pořádat hovory a vytvářet skupinové chaty. A nejlepší na tom je, že je nikdo jiný nemůže vidět, ani lidé, co vyvíjí Dedi!\n\nO BTİDER, lidech, kteří vyvíjí Dedi, se můžeš dočíst tady %@";
 
-/* subject of email sent to contacts when inviting to install Signal */
-"EMAIL_INVITE_SUBJECT" = "Přejděme na Signal";
+/* subject of email sent to contacts when inviting to install Dedi */
+"EMAIL_INVITE_SUBJECT" = "Přejděme na Dedi";
 
 /* Body text an existing user sees when viewing an empty archive */
 "EMPTY_ARCHIVE_TEXT" = "You can archive inactive conversations from your Inbox.";
@@ -817,7 +817,7 @@
 "EMPTY_ARCHIVE_TITLE" = "Clean Up Your Conversation List";
 
 /* Full width label displayed when attempting to compose message */
-"EMPTY_CONTACTS_LABEL_LINE1" = "Žádný z vašich kontaktů nemá aplikaci Signal.";
+"EMPTY_CONTACTS_LABEL_LINE1" = "Žádný z vašich kontaktů nemá aplikaci Dedi.";
 
 /* Full width label displayed when attempting to compose message */
 "EMPTY_CONTACTS_LABEL_LINE2" = "Proč někoho nepozvete?";
@@ -826,7 +826,7 @@
 "EMPTY_INBOX_NEW_USER_TEXT" = "Tap on the compose button";
 
 /* Header text a new user sees when viewing an empty inbox */
-"EMPTY_INBOX_NEW_USER_TITLE" = "Zahajte vaši první konverzaci Signal!";
+"EMPTY_INBOX_NEW_USER_TITLE" = "Zahajte vaši první konverzaci Dedi!";
 
 /* Body text an existing user sees when viewing an empty inbox */
 "EMPTY_INBOX_TEXT" = "None. Zip. Zilch. Nada.";
@@ -859,10 +859,10 @@
 "ENABLE_2FA_VIEW_SELECT_PIN_INSTRUCTIONS" = "Zadejte PIN registrace. Při změně přístroje s tímto telefonním číslem budete na tento PIN dotázán.";
 
 /* Indicates that user has 'two factor auth pin' disabled. */
-"ENABLE_2FA_VIEW_STATUS_DISABLED_INSTRUCTIONS" = "Pro zvýšení bezpečnosti zapněte registrační PIN, který bude vyžadován při změně přístroje s tímto telefonním číslem v aplikaci Signal.";
+"ENABLE_2FA_VIEW_STATUS_DISABLED_INSTRUCTIONS" = "Pro zvýšení bezpečnosti zapněte registrační PIN, který bude vyžadován při změně přístroje s tímto telefonním číslem v aplikaci Dedi.";
 
 /* Indicates that user has 'two factor auth pin' enabled. */
-"ENABLE_2FA_VIEW_STATUS_ENABLED_INSTRUCTIONS" = "Registrační zámek je povolen. Budete požádán(a) o zadání PINu při změně přístroje s tímto telefonním číslem v aplikaci Signal.";
+"ENABLE_2FA_VIEW_STATUS_ENABLED_INSTRUCTIONS" = "Registrační zámek je povolen. Budete požádán(a) o zadání PINu při změně přístroje s tímto telefonním číslem v aplikaci Dedi.";
 
 /* Title for the 'enable two factor auth PIN' views. */
 "ENABLE_2FA_VIEW_TITLE" = "Zámek registrace";
@@ -888,8 +888,8 @@
 /* Error message indicating that message send failed due to failed attachment write */
 "ERROR_DESCRIPTION_MESSAGE_SEND_FAILED_DUE_TO_FAILED_ATTACHMENT_WRITE" = "Failed to write and send attachment.";
 
-/* Generic error used whenever Signal can't contact the server */
-"ERROR_DESCRIPTION_NO_INTERNET" = "Signal was unable to connect to the internet. Please try again.";
+/* Generic error used whenever Dedi can't contact the server */
+"ERROR_DESCRIPTION_NO_INTERNET" = "Dedi was unable to connect to the internet. Please try again.";
 
 /* Error indicating that an outgoing message had no valid recipients. */
 "ERROR_DESCRIPTION_NO_VALID_RECIPIENTS" = "Poslání zprávy selhalo z důvodu platných příjemců.";
@@ -904,7 +904,7 @@
 "ERROR_DESCRIPTION_RESPONSE_FAILED" = "Neplatná odpověď ze strany služby.";
 
 /* Error message when attempting to send message */
-"ERROR_DESCRIPTION_SENDING_UNAUTHORIZED" = "This device is no longer registered with your phone number. Please reinstall Signal.";
+"ERROR_DESCRIPTION_SENDING_UNAUTHORIZED" = "This device is no longer registered with your phone number. Please reinstall Dedi.";
 
 /* Generic server error */
 "ERROR_DESCRIPTION_SERVER_FAILURE" = "Chyba serveru. Prosím, zkuste to později.";
@@ -913,10 +913,10 @@
 "ERROR_DESCRIPTION_UNKNOWN_ERROR" = "Došlo k neznámé chybě.";
 
 /* Error message when attempting to send message */
-"ERROR_DESCRIPTION_UNREGISTERED_RECIPIENT" = "Kontakt není uživatelem aplikace Signal.";
+"ERROR_DESCRIPTION_UNREGISTERED_RECIPIENT" = "Kontakt není uživatelem aplikace Dedi.";
 
 /* Error message when unable to receive an attachment because the sending client is too old. */
-"ERROR_MESSAGE_ATTACHMENT_FROM_OLD_CLIENT" = "Attachment failure: Ask this contact to send their message again after updating to the latest version of Signal.";
+"ERROR_MESSAGE_ATTACHMENT_FROM_OLD_CLIENT" = "Attachment failure: Ask this contact to send their message again after updating to the latest version of Dedi.";
 
 /* No comment provided by engineer. */
 "ERROR_MESSAGE_DUPLICATE_MESSAGE" = "Received a duplicate message.";
@@ -1072,7 +1072,7 @@
 "HOME_VIEW_TITLE_ARCHIVE" = "Archiv";
 
 /* Title for the home view's default mode. */
-"HOME_VIEW_TITLE_INBOX" = "Signal";
+"HOME_VIEW_TITLE_INBOX" = "Dedi";
 
 /* Call setup status label */
 "IN_CALL_CONNECTING" = "Připojování…";
@@ -1093,7 +1093,7 @@
 "INBOX_VIEW_ARCHIVE_MODE_REMINDER" = "These conversations are archived and will only appear in the Inbox if new messages are received.";
 
 /* Multi-line label explaining how to show names instead of phone numbers in your inbox */
-"INBOX_VIEW_MISSING_CONTACTS_PERMISSION" = "You can enable contacts access in the iOS Settings app to see contact names in your Signal conversation list.";
+"INBOX_VIEW_MISSING_CONTACTS_PERMISSION" = "You can enable contacts access in the iOS Settings app to see contact names in your Dedi conversation list.";
 
 /* notification body */
 "INCOMING_CALL" = "Příchozí hovor";
@@ -1114,13 +1114,13 @@
 "INVALID_AUDIO_FILE_ALERT_ERROR_MESSAGE" = "Neplatný zvukový soubor.";
 
 /* Alert body when contacts disabled while trying to invite contacts to signal */
-"INVITE_FLOW_REQUIRES_CONTACT_ACCESS_BODY" = "You can enable contacts access in the iOS Settings app to invite your friends to join Signal.";
+"INVITE_FLOW_REQUIRES_CONTACT_ACCESS_BODY" = "You can enable contacts access in the iOS Settings app to invite your friends to join Dedi.";
 
 /* Alert title when contacts disabled while trying to invite contacts to signal */
 "INVITE_FLOW_REQUIRES_CONTACT_ACCESS_TITLE" = "Povolit přístup ke kontaktům";
 
 /* Label for the cell that presents the 'invite contacts' workflow. */
-"INVITE_FRIENDS_CONTACT_TABLE_BUTTON" = "Pozvat přátele do aplikace Signal";
+"INVITE_FRIENDS_CONTACT_TABLE_BUTTON" = "Pozvat přátele do aplikace Dedi";
 
 /* Search */
 "INVITE_FRIENDS_PICKER_SEARCHBAR_PLACEHOLDER" = "Hledat";
@@ -1299,7 +1299,7 @@
 /* status message for read messages */
 "MESSAGE_STATUS_READ" = "Přečteno";
 
-/* message status if message delivery to a recipient is skipped. We skip delivering group messages to users who have left the group or unregistered their Signal account. */
+/* message status if message delivery to a recipient is skipped. We skip delivering group messages to users who have left the group or unregistered their Dedi account. */
 "MESSAGE_STATUS_RECIPIENT_SKIPPED" = "Přeskočeno";
 
 /* Label indicating that a message failed to send. */
@@ -1364,17 +1364,17 @@
 
 /* Alert body
    Alert body when camera is not authorized */
-"MISSING_CAMERA_PERMISSION_MESSAGE" = "You can enable camera access in the iOS Settings app to make video calls in Signal.";
+"MISSING_CAMERA_PERMISSION_MESSAGE" = "You can enable camera access in the iOS Settings app to make video calls in Dedi.";
 
 /* Alert title
    Alert title when camera is not authorized */
-"MISSING_CAMERA_PERMISSION_TITLE" = "Aplikace Signal vyžaduje přístup k vašemu fotoaparátu.";
+"MISSING_CAMERA_PERMISSION_TITLE" = "Aplikace Dedi vyžaduje přístup k vašemu fotoaparátu.";
 
 /* Alert body when user has previously denied media library access */
 "MISSING_MEDIA_LIBRARY_PERMISSION_MESSAGE" = "You can enable this permission in the iOS Settings app.";
 
 /* Alert title when user has previously denied media library access */
-"MISSING_MEDIA_LIBRARY_PERMISSION_TITLE" = "Signal requires access to your photos for this feature.";
+"MISSING_MEDIA_LIBRARY_PERMISSION_TITLE" = "Dedi requires access to your photos for this feature.";
 
 /* notification title. Embeds {{caller's name or phone number}} */
 "MSGVIEW_MISSED_CALL_WITH_NAME" = "Zmeškaný hovor od %@.";
@@ -1466,7 +1466,7 @@
 /* No comment provided by engineer. */
 "NOTIFICATIONS_NONE" = "Beze jména i obsahu";
 
-/* Table cell switch label. When disabled, Signal will not play notification sounds while the app is in the foreground. */
+/* Table cell switch label. When disabled, Dedi will not play notification sounds while the app is in the foreground. */
 "NOTIFICATIONS_SECTION_INAPP" = "Zvuky při spuštěné aplikaci";
 
 /* Label for settings UI that allows user to change the notification sound. */
@@ -1493,8 +1493,8 @@
 /* Info Message when {{other user}} updates message expiration to {{time amount}}, see the *_TIME_AMOUNT strings for context. */
 "OTHER_UPDATED_DISAPPEARING_MESSAGES_CONFIGURATION" = "%@ nastavil čas mizejících zpráv na %@.";
 
-/* Label warning the user that the Signal service may be down. */
-"OUTAGE_WARNING" = "Aplikace Signal se potýká s technickými problémy. Úsilovně pracujeme na co nejrychlejším obnovení služby.";
+/* Label warning the user that the Dedi service may be down. */
+"OUTAGE_WARNING" = "Aplikace Dedi se potýká s technickými problémy. Úsilovně pracujeme na co nejrychlejším obnovení služby.";
 
 /* No comment provided by engineer. */
 "OUTGOING_CALL" = "Odchozí hovor";
@@ -1578,19 +1578,19 @@
 "PRIVACY_VERIFICATION_FAILED_MISMATCHED_SAFETY_NUMBERS_IN_CLIPBOARD" = "Číslo ve vaší schránce nevypadá jako správné bezpečnostní číslo této konverzace.";
 
 /* Alert body for user error */
-"PRIVACY_VERIFICATION_FAILED_NO_SAFETY_NUMBERS_IN_CLIPBOARD" = "Aplikace Signal nemohla ve vaší schránce nalézt žádné bezpečnostní číslo. Zkopírovali jste ho správně?";
+"PRIVACY_VERIFICATION_FAILED_NO_SAFETY_NUMBERS_IN_CLIPBOARD" = "Aplikace Dedi nemohla ve vaší schránce nalézt žádné bezpečnostní číslo. Zkopírovali jste ho správně?";
 
 /* Alert body when verifying with {{contact name}} */
-"PRIVACY_VERIFICATION_FAILED_THEY_HAVE_WRONG_KEY_FOR_ME" = "Každá dvojice uživatelů Signalu sdílí odlišné bezpečnostní číslo. Ověřte, že %@ zobrazuje *vaše* bezpečnostní číslo.";
+"PRIVACY_VERIFICATION_FAILED_THEY_HAVE_WRONG_KEY_FOR_ME" = "Každá dvojice uživatelů Dediu sdílí odlišné bezpečnostní číslo. Ověřte, že %@ zobrazuje *vaše* bezpečnostní číslo.";
 
 /* alert body */
-"PRIVACY_VERIFICATION_FAILED_WITH_OLD_LOCAL_VERSION" = "Používáte starou verzi aplikace Signal, před ověřením ji musíte aktualizovat.";
+"PRIVACY_VERIFICATION_FAILED_WITH_OLD_LOCAL_VERSION" = "Používáte starou verzi aplikace Dedi, před ověřením ji musíte aktualizovat.";
 
 /* alert body */
-"PRIVACY_VERIFICATION_FAILED_WITH_OLD_REMOTE_VERSION" = "Váš kontakt používá starou verzi Signalu a musí ji aktualizovat, než bude možné ověření.";
+"PRIVACY_VERIFICATION_FAILED_WITH_OLD_REMOTE_VERSION" = "Váš kontakt používá starou verzi Dediu a musí ji aktualizovat, než bude možné ověření.";
 
 /* alert body */
-"PRIVACY_VERIFICATION_FAILURE_INVALID_QRCODE" = "The scanned code doesn't look like a safety number. Are you both on an up-to-date version of Signal?";
+"PRIVACY_VERIFICATION_FAILURE_INVALID_QRCODE" = "The scanned code doesn't look like a safety number. Are you both on an up-to-date version of Dedi?";
 
 /* Paragraph(s) shown alongside the safety number when verifying privacy with {{contact name}} */
 "PRIVACY_VERIFICATION_INSTRUCTIONS" = "Pokud chcete ověřit bezpečnost koncového šifrování s %@, porovnete čísla výše s čísli na druhém zařízení..\n\nNebo můžete naskenovat kód z druhého telefonu, nebo on může naskenovat ten váš.";
@@ -1629,7 +1629,7 @@
 "PROFILE_VIEW_PROFILE_AVATAR_FIELD" = "Obrázek";
 
 /* Description of the user profile. */
-"PROFILE_VIEW_PROFILE_DESCRIPTION" = "Váš profil Signal bude viditelný vašim kontaktům, pokud zahájíte novou konverzaci, nebo uživatelům a skupinám, se kterými ho nasdílíte.";
+"PROFILE_VIEW_PROFILE_DESCRIPTION" = "Váš profil Dedi bude viditelný vašim kontaktům, pokud zahájíte novou konverzaci, nebo uživatelům a skupinám, se kterými ho nasdílíte.";
 
 /* Link to more information about the user profile. */
 "PROFILE_VIEW_PROFILE_DESCRIPTION_LINK" = "Klepnutím sem se dozvíte více.";
@@ -1695,7 +1695,7 @@
 "REGISTER_2FA_FORGOT_PIN" = "Zapoměl jsem PIN.";
 
 /* Alert message explaining what happens if you forget your 'two-factor auth pin'. */
-"REGISTER_2FA_FORGOT_PIN_ALERT_MESSAGE" = "Registrace tohoto telefonního čísla bude možná bez zámku registrace po uplynutí 7 dní, po poslední aktivitě čísla v aplikaci Signal.";
+"REGISTER_2FA_FORGOT_PIN_ALERT_MESSAGE" = "Registrace tohoto telefonního čísla bude možná bez zámku registrace po uplynutí 7 dní, po poslední aktivitě čísla v aplikaci Dedi.";
 
 /* Instructions to enter the 'two-factor auth pin' in the 2FA registration view. */
 "REGISTER_2FA_INSTRUCTIONS" = "Toto telefonní číslo má povolený zámek registrace. Prosím zadejte registrační PIN.\n\nVáš registrační PIN se liší od automatického kódu, který byl zadán na Váš přístroj při posledním kroku.";
@@ -1737,19 +1737,19 @@
 "REGISTRATION_ERROR_BLANK_VERIFICATION_CODE" = "Váš účet nemůžeme aktivovat do té doby, než ověříte kód, který jsme vám poslali.";
 
 /* alert body when registering an iPad */
-"REGISTRATION_IPAD_CONFIRM_BODY" = "Registering now will disable Signal on any other device currently registered with this phone number.";
+"REGISTRATION_IPAD_CONFIRM_BODY" = "Registering now will disable Dedi on any other device currently registered with this phone number.";
 
 /* button text to proceed with registration when on an iPad */
 "REGISTRATION_IPAD_CONFIRM_BUTTON" = "Registrovat tento iPad";
 
 /* alert title when registering an iPad */
-"REGISTRATION_IPAD_CONFIRM_TITLE" = "Máte už účet Signal?";
+"REGISTRATION_IPAD_CONFIRM_TITLE" = "Máte už účet Dedi?";
 
 /* one line label below submit button on registration screen, which links to an external webpage. */
 "REGISTRATION_LEGAL_TERMS_LINK" = "Podmínky & Zásady ochrany osobních údajů";
 
 /* legal disclaimer, embeds a tappable {{link title}} which is styled as a hyperlink */
-"REGISTRATION_LEGAL_TOP_MATTER_FORMAT" = "By registering this device, you agree to Signal's %@";
+"REGISTRATION_LEGAL_TOP_MATTER_FORMAT" = "By registering this device, you agree to Dedi's %@";
 
 /* embedded in legal topmatter, styled as a link */
 "REGISTRATION_LEGAL_TOP_MATTER_LINK_TITLE" = "podmínky";
@@ -1797,13 +1797,13 @@
 "RELAY_REGISTERED_ERROR_RECOVERY" = "Telefonní číslo, které se snažíte zaregistrovat, je již zaregistrováno na jiném serveru. Zrušte jeho registraci z tohoto serveru a zkuste to znovu.";
 
 /* Body text for when user is periodically prompted to enter their registration lock PIN */
-"REMINDER_2FA_BODY" = "Registrační zámek je na Vašem telefonním čísle povolen. Aby Vám pomohla zapamatovat si kód, Vás bude aplikace Signal pravidelně žádat o jeho zadávání.";
+"REMINDER_2FA_BODY" = "Registrační zámek je na Vašem telefonním čísle povolen. Aby Vám pomohla zapamatovat si kód, Vás bude aplikace Dedi pravidelně žádat o jeho zadávání.";
 
 /* Body header for when user is periodically prompted to enter their registration lock PIN */
 "REMINDER_2FA_BODY_HEADER" = "Připomenutí:";
 
 /* Alert message explaining what happens if you forget your 'two-factor auth pin' */
-"REMINDER_2FA_FORGOT_PIN_ALERT_MESSAGE" = "Registračná zámek pomáhá zabezpečit Vaše telefonní číslo před neautorizovanými pokusy o registraci. Tato funkce může být kdykoliv vypnuta v nastavení soukromí v aplikaci Signal.";
+"REMINDER_2FA_FORGOT_PIN_ALERT_MESSAGE" = "Registračná zámek pomáhá zabezpečit Vaše telefonní číslo před neautorizovanými pokusy o registraci. Tato funkce může být kdykoliv vypnuta v nastavení soukromí v aplikaci Dedi.";
 
 /* Navbar title for when user is periodically prompted to enter their registration lock PIN */
 "REMINDER_2FA_NAV_TITLE" = "Zadejte Váš registrační PIN.";
@@ -1830,7 +1830,7 @@
 "SAFETY_NUMBER_CHANGED_CONFIRM_SEND_ACTION" = "Přesto odeslat";
 
 /* Snippet to share {{safety number}} with a friend. sent e.g. via SMS */
-"SAFETY_NUMBER_SHARE_FORMAT" = "Naše bezpečnostní číslo v aplikaci Signal:\n%@";
+"SAFETY_NUMBER_SHARE_FORMAT" = "Naše bezpečnostní číslo v aplikaci Dedi:\n%@";
 
 /* Action sheet heading */
 "SAFETY_NUMBERS_ACTIONSHEET_TITLE" = "Vaše bezpečnostní číslo s %@ se změnilo. Možná ho chcete ověřit.";
@@ -1862,14 +1862,14 @@
 /* Indicates that Touch ID/Face ID/Phone Passcode passcode is not set. */
 "SCREEN_LOCK_ERROR_LOCAL_AUTHENTICATION_PASSCODE_NOT_SET" = "Musíte nejdříve povolit zámek v iOS aplikaci Nastavení, před povolením aplikace zámek displeje.";
 
-/* Description of how and why Signal iOS uses Touch ID/Face ID/Phone Passcode to unlock 'screen lock'. */
-"SCREEN_LOCK_REASON_UNLOCK_SCREEN_LOCK" = "Autentifikovat pro otevření Signalu.";
+/* Description of how and why Dedi iOS uses Touch ID/Face ID/Phone Passcode to unlock 'screen lock'. */
+"SCREEN_LOCK_REASON_UNLOCK_SCREEN_LOCK" = "Autentifikovat pro otevření Dediu.";
 
 /* Title for alert indicating that screen lock could not be unlocked. */
 "SCREEN_LOCK_UNLOCK_FAILED" = "Autentifikace neúspěšná";
 
-/* Label for button on lock screen that lets users unlock Signal. */
-"SCREEN_LOCK_UNLOCK_SIGNAL" = "Odemknout Signal";
+/* Label for button on lock screen that lets users unlock Dedi. */
+"SCREEN_LOCK_UNLOCK_SIGNAL" = "Odemknout Dedi";
 
 /* No comment provided by engineer. */
 "SEARCH_BYNAMEORNUMBER_PLACEHOLDER_TEXT" = "Hledat podle telefoního čísla";
@@ -1905,16 +1905,16 @@
 "SEND_INVITE_FAILURE" = "Odeslání pozvánky selhalo, zkuste to později.";
 
 /* Alert body after invite succeeded */
-"SEND_INVITE_SUCCESS" = "You invited your friend to use Signal!";
+"SEND_INVITE_SUCCESS" = "You invited your friend to use Dedi!";
 
-/* Text for button to send a Signal invite via SMS. %@ is placeholder for the recipient's phone number. */
+/* Text for button to send a Dedi invite via SMS. %@ is placeholder for the recipient's phone number. */
 "SEND_INVITE_VIA_SMS_BUTTON_FORMAT" = "Pozvat pomocí SMS: %@";
 
 /* No comment provided by engineer. */
 "SEND_SMS_CONFIRM_TITLE" = "Pozvat kamaráda přes zabezpečenou SMS?";
 
 /* No comment provided by engineer. */
-"SEND_SMS_INVITE_TITLE" = "Chcete pozvat toto číslo do aplikace Signal:";
+"SEND_SMS_INVITE_TITLE" = "Chcete pozvat toto číslo do aplikace Dedi:";
 
 /* Navbar title */
 "SETTINGS_ABOUT" = "O aplikaci";
@@ -1935,7 +1935,7 @@
 "SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_COUNTRY_FORMAT" = "Umístění: %@";
 
 /* Table footer for the 'censorship circumvention' section when censorship circumvention can be manually enabled. */
-"SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER" = "Pokud je povoleno, Signal se pokusí obejít cenzuru. Nepovolujte v místech, kde Signal není cenzurován.";
+"SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER" = "Pokud je povoleno, Dedi se pokusí obejít cenzuru. Nepovolujte v místech, kde Dedi není cenzurován.";
 
 /* Table footer for the 'censorship circumvention' section shown when censorship circumvention has been auto-enabled based on local phone number. */
 "SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER_AUTO_ENABLED" = "Obcházení cenzury bylo aktivováno na základě vašeho telefonního čísla.";
@@ -1943,8 +1943,8 @@
 /* Table footer for the 'censorship circumvention' section shown when the app is not connected to the internet. */
 "SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER_NO_CONNECTION" = "Obcházení cenzury může být povoleno pouze pokud jste připojeni k internetu.";
 
-/* Table footer for the 'censorship circumvention' section shown when the app is connected to the Signal service. */
-"SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER_WEBSOCKET_CONNECTED" = "Obcházení cenzury není nutné; již jste připojeni ke službě Signal.";
+/* Table footer for the 'censorship circumvention' section shown when the app is connected to the Dedi service. */
+"SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_FOOTER_WEBSOCKET_CONNECTED" = "Obcházení cenzury není nutné; již jste připojeni ke službě Dedi.";
 
 /* Table header for the 'censorship circumvention' section. */
 "SETTINGS_ADVANCED_CENSORSHIP_CIRCUMVENTION_HEADER" = "Obcházení cenzury";
@@ -2012,8 +2012,8 @@
 /* A label for the 'add phone number' button in the block list table. */
 "SETTINGS_BLOCK_LIST_ADD_BUTTON" = "Add Blocked User";
 
-/* A label that indicates the user has no Signal contacts. */
-"SETTINGS_BLOCK_LIST_NO_CONTACTS" = "V aplikaci Signal nemáte žádné kontakty.";
+/* A label that indicates the user has no Dedi contacts. */
+"SETTINGS_BLOCK_LIST_NO_CONTACTS" = "V aplikaci Dedi nemáte žádné kontakty.";
 
 /* A label that indicates the user's search has no matching results. */
 "SETTINGS_BLOCK_LIST_NO_SEARCH_RESULTS" = "Žádné výsledky vyhledávání";
@@ -2025,13 +2025,13 @@
 "SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE" = "Vždy přeposílat hovory";
 
 /* User settings section footer, a detailed explanation */
-"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE_DETAIL" = "Relay all calls through a Signal server to avoid revealing your IP address to your contact. Enabling will reduce call quality.";
+"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE_DETAIL" = "Relay all calls through a Dedi server to avoid revealing your IP address to your contact. Enabling will reduce call quality.";
 
 /* No comment provided by engineer. */
 "SETTINGS_CLEAR_HISTORY" = "Smazat historii konverzace";
 
 /* No comment provided by engineer. */
-"SETTINGS_COPYRIGHT" = "Copyright Signal Messenger \n Licensed under the GPLv3";
+"SETTINGS_COPYRIGHT" = "Copyright Dedi Messenger \n Licensed under the GPLv3";
 
 /* No comment provided by engineer. */
 "SETTINGS_DELETE_ACCOUNT_BUTTON" = "Smazat účet";
@@ -2058,7 +2058,7 @@
 "SETTINGS_INVITE_TITLE" = "Pozvěte vaše přátele";
 
 /* content of tweet when inviting via twitter - please do not translate URL */
-"SETTINGS_INVITE_TWITTER_TEXT" = "Můžete mě kontaktovat pomocí aplikace @signalapp. Stáhnout nyní: https://signal.org/download/";
+"SETTINGS_INVITE_TWITTER_TEXT" = "Můžete mě kontaktovat pomocí aplikace Dedi. Stáhnout nyní: http://dedi.link";
 
 /* Label for settings view that allows user to change the notification sound. */
 "SETTINGS_ITEM_NOTIFICATION_SOUND" = "Zvuk zprávy";
@@ -2106,7 +2106,7 @@
 "SETTINGS_SCREEN_LOCK_ACTIVITY_TIMEOUT" = "Čas zamknutí displeje";
 
 /* Footer for the 'screen lock' section of the privacy settings. */
-"SETTINGS_SCREEN_LOCK_SECTION_FOOTER" = "Odemknout obrazovku aplikace Signal pomocí Touch ID, Face ID, nebo kódovým zámkem vašeho zařízení iOS. Příchozí hovory i oznámení o zprávách lze přijímat i když je zapnutý zámek displeje. V nastavení oznámení aplikace Signal můžete určit, které informace budou zobrazeny.";
+"SETTINGS_SCREEN_LOCK_SECTION_FOOTER" = "Odemknout obrazovku aplikace Dedi pomocí Touch ID, Face ID, nebo kódovým zámkem vašeho zařízení iOS. Příchozí hovory i oznámení o zprávách lze přijímat i když je zapnutý zámek displeje. V nastavení oznámení aplikace Dedi můžete určit, které informace budou zobrazeny.";
 
 /* Title for the 'screen lock' section of the privacy settings. */
 "SETTINGS_SCREEN_LOCK_SECTION_TITLE" = "Zámek displeje";
@@ -2118,10 +2118,10 @@
 "SETTINGS_SCREEN_SECURITY" = "Ochrana obrazovky";
 
 /* No comment provided by engineer. */
-"SETTINGS_SCREEN_SECURITY_DETAIL" = "Zabránit náhledům z aplikace Signal, aby se objevily v přepínači aplikací.";
+"SETTINGS_SCREEN_SECURITY_DETAIL" = "Zabránit náhledům z aplikace Dedi, aby se objevily v přepínači aplikací.";
 
 /* Settings table section footer. */
-"SETTINGS_SECTION_CALL_KIT_DESCRIPTION" = "Integrace s hovory iOS zobrazuje hovory z aplikace Signal na zamknuté obrazovce a v systémové historii hovorů. Volitelně můžete zobrazit jméno a telefonní číslo. Pokud je povolen iCloud zálohy, tato data jsou sdílena se společností Apple.";
+"SETTINGS_SECTION_CALL_KIT_DESCRIPTION" = "Integrace s hovory iOS zobrazuje hovory z aplikace Dedi na zamknuté obrazovce a v systémové historii hovorů. Volitelně můžete zobrazit jméno a telefonní číslo. Pokud je povolen iCloud zálohy, tato data jsou sdílena se společností Apple.";
 
 /* Label for the notifications section of conversation settings view. */
 "SETTINGS_SECTION_NOTIFICATIONS" = "Oznámení";
@@ -2193,13 +2193,13 @@
 "SHARE_EXTENSION_LOADING" = "Loading…";
 
 /* Message indicating that the share extension cannot be used until the user has registered in the main app. */
-"SHARE_EXTENSION_NOT_REGISTERED_MESSAGE" = "Spustit aplikaci Signal pro registraci.";
+"SHARE_EXTENSION_NOT_REGISTERED_MESSAGE" = "Spustit aplikaci Dedi pro registraci.";
 
 /* Title indicating that the share extension cannot be used until the user has registered in the main app. */
 "SHARE_EXTENSION_NOT_REGISTERED_TITLE" = "Není registrováno";
 
 /* Message indicating that the share extension cannot be used until the main app has been launched at least once. */
-"SHARE_EXTENSION_NOT_YET_MIGRATED_MESSAGE" = "Spustit aplikaci Signal pro registraci nebo aktualizaci.";
+"SHARE_EXTENSION_NOT_YET_MIGRATED_MESSAGE" = "Spustit aplikaci Dedi pro registraci nebo aktualizaci.";
 
 /* Title indicating that the share extension cannot be used until the main app has been launched at least once. */
 "SHARE_EXTENSION_NOT_YET_MIGRATED_TITLE" = "Nepřipraveno";
@@ -2210,11 +2210,11 @@
 /* Alert title */
 "SHARE_EXTENSION_SENDING_IN_PROGRESS_TITLE" = "Nahrávám...";
 
-/* Shown when trying to share content to a Signal user for the share extension. Followed by failure details. */
+/* Shown when trying to share content to a Dedi user for the share extension. Followed by failure details. */
 "SHARE_EXTENSION_UNABLE_TO_BUILD_ATTACHMENT_ALERT_TITLE" = "Přílohu nelze připravit";
 
 /* Title for the 'share extension' view. */
-"SHARE_EXTENSION_VIEW_TITLE" = "Sdílet do Signalu";
+"SHARE_EXTENSION_VIEW_TITLE" = "Sdílet do Dediu";
 
 /* Action sheet item */
 "SHOW_SAFETY_NUMBER_ACTION" = "Zobrazit bezpečnostní číslo";
@@ -2222,8 +2222,8 @@
 /* notification action */
 "SHOW_THREAD_BUTTON_TITLE" = "Zobrazit konverzaci";
 
-/* body sent to contacts when inviting to Install Signal */
-"SMS_INVITE_BODY" = "Pozval jsem tě do aplikace Signal! Zde je odkaz:";
+/* body sent to contacts when inviting to Install Dedi */
+"SMS_INVITE_BODY" = "Pozval jsem tě do aplikace Dedi! Zde je odkaz:";
 
 /* Label for the 'no sound' option that allows users to disable sounds for notifications, etc. */
 "SOUNDS_NONE" = "Žádné";
@@ -2310,13 +2310,13 @@
 "UNLINK_CONFIRMATION_ALERT_TITLE" = "Odpojit \"%@\"?";
 
 /* Alert title when unlinking device fails */
-"UNLINKING_FAILED_ALERT_TITLE" = "Aplikaci Signal se nepodařilo odpojit vaše zařízení.";
+"UNLINKING_FAILED_ALERT_TITLE" = "Aplikaci Dedi se nepodařilo odpojit vaše zařízení.";
 
 /* Label text in device manager for a device with no name */
 "UNNAMED_DEVICE" = "Nepojmenované zařízení";
 
 /* No comment provided by engineer. */
-"UNREGISTER_SIGNAL_FAIL" = "Zrušení registrace Signal selhalo.";
+"UNREGISTER_SIGNAL_FAIL" = "Zrušení registrace Dedi selhalo.";
 
 /* No comment provided by engineer. */
 "UNSUPPORTED_ATTACHMENT" = "Přijat nepodporovaný typ přílohy.";
@@ -2355,7 +2355,7 @@
 "UPGRADE_EXPERIENCE_INTRODUCING_PROFILES_BUTTON" = "Nastavit váš profil";
 
 /* Description of new profile feature for upgrading (existing) users */
-"UPGRADE_EXPERIENCE_INTRODUCING_PROFILES_DESCRIPTION" = "Nyní můžete s vašimi přáteli v aplikaci Signal sdílet profilovou fotku a jméno.";
+"UPGRADE_EXPERIENCE_INTRODUCING_PROFILES_DESCRIPTION" = "Nyní můžete s vašimi přáteli v aplikaci Dedi sdílet profilovou fotku a jméno.";
 
 /* Header for upgrade experience */
 "UPGRADE_EXPERIENCE_INTRODUCING_PROFILES_TITLE" = "Připraveni?";
@@ -2376,19 +2376,19 @@
 "UPGRADE_EXPERIENCE_INTRODUCING_TYPING_INDICATORS_TITLE" = "Introducing Typing Indicators";
 
 /* Description of video calling to upgrading (existing) users */
-"UPGRADE_EXPERIENCE_VIDEO_DESCRIPTION" = "Aplikace Signal nyní podporuje bezpečné video hovory. Začněte hovor jako obvykle, klepněte na tlačítko kamery a zamávejte na pozdrav.";
+"UPGRADE_EXPERIENCE_VIDEO_DESCRIPTION" = "Aplikace Dedi nyní podporuje bezpečné video hovory. Začněte hovor jako obvykle, klepněte na tlačítko kamery a zamávejte na pozdrav.";
 
 /* Header for upgrade experience */
 "UPGRADE_EXPERIENCE_VIDEO_TITLE" = "Ahoj, bezpečné videohovory!";
 
 /* Message for the alert indicating that user should upgrade iOS. */
-"UPGRADE_IOS_ALERT_MESSAGE" = "Signal requires iOS 9 or later. Please use the Software Update feature in the iOS Settings app.";
+"UPGRADE_IOS_ALERT_MESSAGE" = "Dedi requires iOS 9 or later. Please use the Software Update feature in the iOS Settings app.";
 
 /* Title for the alert indicating that user should upgrade iOS. */
 "UPGRADE_IOS_ALERT_TITLE" = "Aktualizujte iOS";
 
 /* No comment provided by engineer. */
-"Upgrading Signal ..." = "Upgrading Signal…";
+"Upgrading Dedi ..." = "Upgrading Dedi…";
 
 /* button text for back button on verification view */
 "VERIFICATION_BACK_BUTTON" = "Zpět";
@@ -2442,7 +2442,7 @@
 "VOICE_MESSAGE_TOO_SHORT_ALERT_TITLE" = "Hlasová zpráva";
 
 /* Activity indicator title, shown upon returning to the device manager, until you complete the provisioning process on desktop */
-"WAITING_TO_COMPLETE_DEVICE_LINK_TEXT" = "Dokončete nastavení v aplikaci Signal Desktop.";
+"WAITING_TO_COMPLETE_DEVICE_LINK_TEXT" = "Dokončete nastavení v aplikaci Dedi Desktop.";
 
 /* Info Message when you disable disappearing messages */
 "YOU_DISABLED_DISAPPEARING_MESSAGES_CONFIGURATION" = "Zakázal(a) jste mizející zprávy.";
