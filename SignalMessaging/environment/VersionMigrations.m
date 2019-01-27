@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
         OWSLogError(@"Migrating from RedPhone no longer supported. Quitting.");
         // Not translating these as so few are affected.
         UIAlertController *alertController = [UIAlertController
-            alertControllerWithTitle:@"You must reinstall Signal"
+            alertControllerWithTitle:@"You must reinstall Dedi"
                              message:
                                  @"Sorry, your installation is too old for us to update. You'll have to start fresh."
                       preferredStyle:UIAlertControllerStyleAlert];

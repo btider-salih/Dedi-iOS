@@ -3,7 +3,7 @@
 //
 
 #import "Pastelog.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "ThreadUtil.h"
 #import "zlib.h"
 #import <AFNetworking/AFNetworking.h>
@@ -532,7 +532,7 @@ typedef void (^DebugLogUploadFailure)(DebugLogUploader *uploader, NSError *error
 
     [body appendFormat:@"Device: %@ (%@)\n", UIDevice.currentDevice.model, platform];
     [body appendFormat:@"iOS Version: %@ \n", [UIDevice currentDevice].systemVersion];
-    [body appendFormat:@"Signal Version: %@ \n", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+    [body appendFormat:@"Dedi Version: %@ \n", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
     [body appendFormat:@"Log URL: %@ \n", url];
 
     NSString *escapedBody =

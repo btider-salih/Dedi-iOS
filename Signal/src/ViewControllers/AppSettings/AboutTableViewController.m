@@ -3,7 +3,7 @@
 //
 
 #import "AboutTableViewController.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "UIView+OWS.h"
 #import <SignalMessaging/Environment.h>
 #import <SignalMessaging/OWSPreferences.h>
@@ -70,7 +70,7 @@
     [helpSection addItem:[OWSTableItem disclosureItemWithText:NSLocalizedString(@"SETTINGS_SUPPORT", @"")
                                                   actionBlock:^{
                                                       [[UIApplication sharedApplication]
-                                                          openURL:[NSURL URLWithString:@"https://support.signal.org"]];
+                                                          openURL:[NSURL URLWithString:@"http://dedi.link"]];
                                                   }]];
     [contents addSection:helpSection];
 

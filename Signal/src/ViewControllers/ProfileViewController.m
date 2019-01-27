@@ -7,7 +7,7 @@
 #import "AvatarViewHelper.h"
 #import "HomeViewController.h"
 #import "OWSNavigationController.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "SignalsNavigationController.h"
 #import "UIColor+OWS.h"
 #import "UIFont+OWS.h"
@@ -517,7 +517,7 @@ NSString *const kProfileView_LastPresentedDate = @"kProfileView_LastPresentedDat
 {
     if (sender.state == UIGestureRecognizerStateRecognized) {
         [UIApplication.sharedApplication
-            openURL:[NSURL URLWithString:@"https://support.signal.org/hc/en-us/articles/115001110511"]];
+         openURL:[NSURL URLWithString:@"http://dedi.link"]];
     }
 }
 

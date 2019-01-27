@@ -4,7 +4,7 @@
 
 #import "NotificationsManager.h"
 #import "PushManager.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import <AudioToolbox/AudioServices.h>
 #import <SignalCoreKit/Threading.h>
 #import <SignalMessaging/Environment.h>

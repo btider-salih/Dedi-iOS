@@ -12,7 +12,7 @@
 #import "ProfileViewController.h"
 #import "PushManager.h"
 #import "RegistrationUtils.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "SignalApp.h"
 #import "TSAccountManager.h"
 #import "TSDatabaseView.h"

@@ -8,7 +8,7 @@
 #import "OWSCountryMetadata.h"
 #import "Pastelog.h"
 #import "PushManager.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "TSAccountManager.h"
 #import <PromiseKit/AnyPromise.h>
 #import <Reachability/Reachability.h>
@@ -87,25 +87,25 @@ NS_ASSUME_NONNULL_BEGIN
 
     __weak AdvancedSettingsTableViewController *weakSelf = self;
 
-    OWSTableSection *loggingSection = [OWSTableSection new];
-    loggingSection.headerTitle = NSLocalizedString(@"LOGGING_SECTION", nil);
-    [loggingSection addItem:[OWSTableItem switchItemWithText:NSLocalizedString(@"SETTINGS_ADVANCED_DEBUGLOG", @"")
-                                                        isOn:[OWSPreferences isLoggingEnabled]
-                                                      target:weakSelf
-                                                    selector:@selector(didToggleEnableLogSwitch:)]];
-
-
-    if ([OWSPreferences isLoggingEnabled]) {
-        [loggingSection
-            addItem:[OWSTableItem actionItemWithText:NSLocalizedString(@"SETTINGS_ADVANCED_SUBMIT_DEBUGLOG", @"")
-                                         actionBlock:^{
-                                             OWSLogInfo(@"Submitting debug logs");
-                                             [DDLog flushLog];
-                                             [Pastelog submitLogs];
-                                         }]];
-    }
-
-    [contents addSection:loggingSection];
+//    OWSTableSection *loggingSection = [OWSTableSection new];
+//    loggingSection.headerTitle = NSLocalizedString(@"LOGGING_SECTION", nil);
+//    [loggingSection addItem:[OWSTableItem switchItemWithText:NSLocalizedString(@"SETTINGS_ADVANCED_DEBUGLOG", @"")
+//                                                        isOn:[OWSPreferences isLoggingEnabled]
+//                                                      target:weakSelf
+//                                                    selector:@selector(didToggleEnableLogSwitch:)]];
+//
+//
+//    if ([OWSPreferences isLoggingEnabled]) {
+//        [loggingSection
+//            addItem:[OWSTableItem actionItemWithText:NSLocalizedString(@"SETTINGS_ADVANCED_SUBMIT_DEBUGLOG", @"")
+//                                         actionBlock:^{
+//                                             OWSLogInfo(@"Submitting debug logs");
+//                                             [DDLog flushLog];
+//                                             [Pastelog submitLogs];
+//                                         }]];
+//    }
+//
+//    [contents addSection:loggingSection];
 
     OWSTableSection *pushNotificationsSection = [OWSTableSection new];
     pushNotificationsSection.headerTitle

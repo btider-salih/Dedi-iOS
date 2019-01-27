@@ -9,7 +9,7 @@
 #import "ContactsViewHelper.h"
 #import "OWSTableViewController.h"
 #import "PhoneNumber.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "UIFont+OWS.h"
 #import "UIView+OWS.h"
 #import <SignalMessaging/Environment.h>

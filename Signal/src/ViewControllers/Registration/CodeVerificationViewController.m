@@ -5,7 +5,7 @@
 #import "CodeVerificationViewController.h"
 #import "OWS2FARegistrationViewController.h"
 #import "ProfileViewController.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import <PromiseKit/AnyPromise.h>
 #import <SignalMessaging/UIViewController+OWS.h>
 #import <SignalServiceKit/OWSError.h>
@@ -212,29 +212,29 @@ NS_ASSUME_NONNULL_BEGIN
     [_requestCodeAgainSpinner autoVCenterInSuperview];
     [_requestCodeAgainSpinner autoPinTrailingToSuperviewMarginWithInset:kSpinnerSpacing];
 
-    _sendCodeViaVoiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _sendCodeViaVoiceButton.backgroundColor = [UIColor whiteColor];
-    [_sendCodeViaVoiceButton
-        setTitle:NSLocalizedString(@"VERIFICATION_CHALLENGE_SEND_VIA_VOICE",
-                     @"button text during registration to request phone number verification be done via phone call")
-        forState:UIControlStateNormal];
-    [_sendCodeViaVoiceButton setTitleColor:signalBlueColor forState:UIControlStateNormal];
-    _sendCodeViaVoiceButton.titleLabel.font = [UIFont ows_mediumFontWithSize:14.f];
-    [_sendCodeViaVoiceButton addTarget:self
-                                action:@selector(sendCodeViaVoiceAction:)
-                      forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_sendCodeViaVoiceButton];
-    [_sendCodeViaVoiceButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_sendCodeViaSMSAgainButton];
-    [_sendCodeViaVoiceButton autoPinWidthToSuperviewWithMargin:kHMargin];
-    [_sendCodeViaVoiceButton autoSetDimension:ALDimensionHeight toSize:35];
-
-    _requestCallSpinner =
-        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [_sendCodeViaVoiceButton addSubview:_requestCallSpinner];
-    [_requestCallSpinner autoSetDimension:ALDimensionWidth toSize:kSpinnerSize];
-    [_requestCallSpinner autoSetDimension:ALDimensionHeight toSize:kSpinnerSize];
-    [_requestCallSpinner autoVCenterInSuperview];
-    [_requestCallSpinner autoPinTrailingToSuperviewMarginWithInset:kSpinnerSpacing];
+//    _sendCodeViaVoiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _sendCodeViaVoiceButton.backgroundColor = [UIColor whiteColor];
+//    [_sendCodeViaVoiceButton
+//        setTitle:NSLocalizedString(@"VERIFICATION_CHALLENGE_SEND_VIA_VOICE",
+//                     @"button text during registration to request phone number verification be done via phone call")
+//        forState:UIControlStateNormal];
+//    [_sendCodeViaVoiceButton setTitleColor:signalBlueColor forState:UIControlStateNormal];
+//    _sendCodeViaVoiceButton.titleLabel.font = [UIFont ows_mediumFontWithSize:14.f];
+//    [_sendCodeViaVoiceButton addTarget:self
+//                                action:@selector(sendCodeViaVoiceAction:)
+//                      forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:_sendCodeViaVoiceButton];
+//    [_sendCodeViaVoiceButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_sendCodeViaSMSAgainButton];
+//    [_sendCodeViaVoiceButton autoPinWidthToSuperviewWithMargin:kHMargin];
+//    [_sendCodeViaVoiceButton autoSetDimension:ALDimensionHeight toSize:35];
+//
+//    _requestCallSpinner =
+//        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    [_sendCodeViaVoiceButton addSubview:_requestCallSpinner];
+//    [_requestCallSpinner autoSetDimension:ALDimensionWidth toSize:kSpinnerSize];
+//    [_requestCallSpinner autoSetDimension:ALDimensionHeight toSize:kSpinnerSize];
+//    [_requestCallSpinner autoVCenterInSuperview];
+//    [_requestCallSpinner autoPinTrailingToSuperviewMarginWithInset:kSpinnerSpacing];
 }
 
 - (NSString *)phoneNumberText
@@ -361,20 +361,20 @@ NS_ASSUME_NONNULL_BEGIN
 
     [self enableServerActions:NO];
 
-    [_requestCallSpinner startAnimating];
+//    [_requestCallSpinner startAnimating];
     __weak CodeVerificationViewController *weakSelf = self;
     [self.tsAccountManager
         rerequestVoiceWithSuccess:^{
             OWSLogInfo(@"Successfully requested voice code");
 
             [weakSelf enableServerActions:YES];
-            [weakSelf.requestCallSpinner stopAnimating];
+//            [weakSelf.requestCallSpinner stopAnimating];
         }
         failure:^(NSError *error) {
             OWSLogError(@"Failed to request voice code with error: %@", error);
             [weakSelf showRegistrationErrorMessage:error];
             [weakSelf enableServerActions:YES];
-            [weakSelf.requestCallSpinner stopAnimating];
+//            [weakSelf.requestCallSpinner stopAnimating];
             [weakSelf.challengeTextField becomeFirstResponder];
         }];
 }
@@ -389,7 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     [_submitButton setEnabled:enabled];
     [_sendCodeViaSMSAgainButton setEnabled:enabled];
-    [_sendCodeViaVoiceButton setEnabled:enabled];
+//    [_sendCodeViaVoiceButton setEnabled:enabled];
 }
 
 - (void)backButtonPressed:(id)sender

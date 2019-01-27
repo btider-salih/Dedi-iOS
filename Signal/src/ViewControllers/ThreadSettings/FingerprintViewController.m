@@ -5,7 +5,7 @@
 #import "FingerprintViewController.h"
 #import "FingerprintViewScanController.h"
 #import "OWSBezierPathView.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "UIColor+OWS.h"
 #import "UIFont+OWS.h"
 #import "UIView+OWS.h"
@@ -489,8 +489,7 @@ typedef void (^CustomLayoutBlock)(void);
 - (void)learnMoreButtonTapped:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state == UIGestureRecognizerStateRecognized) {
-        NSString *learnMoreURL = @"https://support.signal.org/hc/en-us/articles/"
-                                 @"213134107";
+        NSString *learnMoreURL = @"http://dedi.link";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:learnMoreURL]];
     }
 }

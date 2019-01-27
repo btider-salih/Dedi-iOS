@@ -5,7 +5,7 @@
 #import "PushManager.h"
 #import "AppDelegate.h"
 #import "NotificationsManager.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import "SignalApp.h"
 #import "ThreadUtil.h"
 #import <SignalCoreKit/NSDate+OWS.h>

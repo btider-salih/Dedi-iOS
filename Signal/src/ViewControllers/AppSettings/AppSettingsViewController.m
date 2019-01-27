@@ -15,7 +15,7 @@
 #import "ProfileViewController.h"
 #import "PushManager.h"
 #import "RegistrationUtils.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import <SignalMessaging/Environment.h>
 #import <SignalMessaging/OWSContactsManager.h>
 #import <SignalMessaging/UIUtil.h>
@@ -193,7 +193,8 @@
                                               actionBlock:^{
                                                   [weakSelf showAdvanced];
                                               }]];
-    BOOL isBackupEnabled = [OWSBackup.sharedManager isBackupEnabled];
+    BOOL isBackupEnabled = NO;
+    //[OWSBackup.sharedManager isBackupEnabled];
     BOOL showBackup = (OWSBackup.isFeatureEnabled && isBackupEnabled);
     if (showBackup) {
         [section addItem:[OWSTableItem disclosureItemWithText:NSLocalizedString(@"SETTINGS_BACKUP",

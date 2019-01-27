@@ -5,7 +5,7 @@
 #import "PrivacySettingsTableViewController.h"
 #import "BlockListViewController.h"
 #import "OWS2FASettingsViewController.h"
-#import "Signal-Swift.h"
+#import "Dedi-Swift.h"
 #import <SignalMessaging/Environment.h>
 #import <SignalMessaging/OWSPreferences.h>
 #import <SignalMessaging/ThreadUtil.h>
@@ -157,18 +157,18 @@ static NSString *const kSealedSenderInfoURL = @"https://signal.org/blog/sealed-s
     [contents addSection:screenSecuritySection];
     
     // Allow calls to connect directly vs. using TURN exclusively
-    OWSTableSection *callingSection = [OWSTableSection new];
-    callingSection.headerTitle
-        = NSLocalizedString(@"SETTINGS_SECTION_TITLE_CALLING", @"settings topic header for table section");
-    callingSection.footerTitle = NSLocalizedString(@"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE_DETAIL",
-        @"User settings section footer, a detailed explanation");
-    [callingSection addItem:[OWSTableItem switchItemWithText:NSLocalizedString(
-                                                                 @"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE",
-                                                                 @"Table cell label")
-                                                        isOn:[self.preferences doCallsHideIPAddress]
-                                                      target:weakSelf
-                                                    selector:@selector(didToggleCallsHideIPAddressSwitch:)]];
-    [contents addSection:callingSection];
+//    OWSTableSection *callingSection = [OWSTableSection new];
+//    callingSection.headerTitle
+//        = NSLocalizedString(@"SETTINGS_SECTION_TITLE_CALLING", @"settings topic header for table section");
+//    callingSection.footerTitle = NSLocalizedString(@"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE_DETAIL",
+//        @"User settings section footer, a detailed explanation");
+//    [callingSection addItem:[OWSTableItem switchItemWithText:NSLocalizedString(
+//                                                                 @"SETTINGS_CALLING_HIDES_IP_ADDRESS_PREFERENCE_TITLE",
+//                                                                 @"Table cell label")
+//                                                        isOn:[self.preferences doCallsHideIPAddress]
+//                                                      target:weakSelf
+//                                                    selector:@selector(didToggleCallsHideIPAddressSwitch:)]];
+//    [contents addSection:callingSection];
 
     if (@available(iOS 11, *)) {
         OWSTableSection *callKitSection = [OWSTableSection new];
