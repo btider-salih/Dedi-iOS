@@ -1008,21 +1008,28 @@ NSString *const kArchivedConversationsReuseIdentifier = @"kArchivedConversations
 
 - (void)didTapLeaveGroupForIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertController *alertController =
-    [UIAlertController alertControllerWithTitle:NSLocalizedString(@"CONFIRM_LEAVE_GROUP_TITLE", @"Alert title")
-                                        message:NSLocalizedString(@"CONFIRM_LEAVE_GROUP_DESCRIPTION", @"Alert body")
-                                 preferredStyle:UIAlertControllerStyleAlert];
+    [self showAlertForDeletingConversation:indexPath isGroup:[[self threadForIndexPath:indexPath] isKindOfClass:[TSGroupThread class]]];
+}
+
+-(void) showAlertForDeletingConversation: (NSIndexPath *)indexPath isGroup:(BOOL)isGroup{
+    NSString* title = isGroup ? @"CONFIRM_LEAVE_GROUP_TITLE" : @"CONFIRM_DELETE_CONVERSATION_TITLE";
+    NSString* description = isGroup ? @"CONFIRM_LEAVE_GROUP_DESCRIPTION" : @"CONFIRM_DELETE_CONVERSATION_DESCRIPTION";
+    NSString* buttonTitle = isGroup ? @"LEAVE_BUTTON_TITLE" : @"BUTTON_DONE";
     
-    UIAlertAction *leaveAction = [UIAlertAction
-                                  actionWithTitle:NSLocalizedString(@"LEAVE_BUTTON_TITLE", @"Confirmation button within contextual alert")
-                                  style:UIAlertActionStyleDestructive
-                                  handler:^(UIAlertAction *_Nonnull action) {
-                                      [self tableViewCellTappedDelete:indexPath];
-                                  }];
-    [alertController addAction:leaveAction];
-    [alertController addAction:[OWSAlerts cancelAction]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(title, @"Alert title")
+                                         message:NSLocalizedString(description, @"Alert body")
+                                  preferredStyle:UIAlertControllerStyleAlert];
+     
+     UIAlertAction *leaveAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(buttonTitle, @"Confirmation button within contextual alert")
+                                   style:UIAlertActionStyleDestructive
+                                   handler:^(UIAlertAction *_Nonnull action) {
+                                       [self tableViewCellTappedDelete:indexPath];
+                                   }];
+     [alertController addAction:leaveAction];
+     [alertController addAction:[OWSAlerts cancelAction]];
+     
+     [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

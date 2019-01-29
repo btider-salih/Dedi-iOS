@@ -440,6 +440,8 @@
 		45FBC5C81DF8575700E9B410 /* CallKitCallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC59A1DF8575700E9B410 /* CallKitCallManager.swift */; };
 		45FBC5D11DF8592E00E9B410 /* SignalCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC5D01DF8592E00E9B410 /* SignalCall.swift */; };
 		490C1EB921FCF30B000AB49A /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C1EB821FCF30B000AB49A /* PromiseKit.framework */; };
+		4992815522003B7000C1C349 /* ShareLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992815422003B6F00C1C349 /* ShareLocationManager.swift */; };
+		4992815722003B9800C1C349 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4992815622003B9800C1C349 /* CoreLocation.framework */; };
 		4AC4EA13C8A444455DAB351F /* Pods_SignalMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264242150E87D10A357DB07B /* Pods_SignalMessaging.framework */; };
 		4C04F58421C860C50090D0BB /* MantlePerfTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C04F58321C860C50090D0BB /* MantlePerfTest.swift */; };
 		4C090A1B210FD9C7001FD7F9 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C090A1A210FD9C7001FD7F9 /* HapticFeedback.swift */; };
@@ -1158,6 +1160,8 @@
 		45FBC59A1DF8575700E9B410 /* CallKitCallManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitCallManager.swift; sourceTree = "<group>"; };
 		45FBC5D01DF8592E00E9B410 /* SignalCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalCall.swift; sourceTree = "<group>"; };
 		490C1EB821FCF30B000AB49A /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4992815422003B6F00C1C349 /* ShareLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationManager.swift; sourceTree = "<group>"; };
+		4992815622003B9800C1C349 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4C04F58321C860C50090D0BB /* MantlePerfTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MantlePerfTest.swift; path = Models/MantlePerfTest.swift; sourceTree = "<group>"; };
 		4C090A1A210FD9C7001FD7F9 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = UserInterface/HapticFeedback.swift; sourceTree = "<group>"; };
 		4C11AA4F20FD59C700351FBD /* MessageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStatusView.swift; sourceTree = "<group>"; };
@@ -1331,6 +1335,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4992815722003B9800C1C349 /* CoreLocation.framework in Frameworks */,
 				4CC1ECF9211A47CE00CC13BE /* StoreKit.framework in Frameworks */,
 				455A16DD1F1FEA0000F86704 /* Metal.framework in Frameworks */,
 				455A16DE1F1FEA0000F86704 /* MetalKit.framework in Frameworks */,
@@ -2187,6 +2192,7 @@
 				458E38361D668EBF0094BD24 /* OWSDeviceProvisioningURLParser.m */,
 				4CB5F26820F7D060004D1B42 /* MessageActions.swift */,
 				4C5250D121E7BD7D00CE3D95 /* PhoneNumberValidator.swift */,
+				4992815422003B6F00C1C349 /* ShareLocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2520,6 +2526,7 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4992815622003B9800C1C349 /* CoreLocation.framework */,
 				490C1EB821FCF30B000AB49A /* PromiseKit.framework */,
 				3496955F21A2FC8100DCFE74 /* CloudKit.framework */,
 				4C9CA25C217E676900607C63 /* ZXingObjC.framework */,
@@ -3494,6 +3501,7 @@
 				452037D11EE84975004E4CDF /* DebugUISessionState.m in Sources */,
 				D221A09A169C9E5E00537ABF /* main.m in Sources */,
 				3496957221A301A100DCFE74 /* OWSBackup.m in Sources */,
+				4992815522003B7000C1C349 /* ShareLocationManager.swift in Sources */,
 				34B3F87B1E8DF1700035BE1A /* ExperienceUpgradesPageViewController.swift in Sources */,
 				34E5DC8220D8050D00C08145 /* RegistrationUtils.m in Sources */,
 				452EA09E1EA7ABE00078744B /* AttachmentPointerView.swift in Sources */,

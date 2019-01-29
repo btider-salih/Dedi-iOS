@@ -1749,10 +1749,10 @@
 "REGISTRATION_LEGAL_TERMS_LINK" = "Şartlar ve Gizlilik İlkesi";
 
 /* legal disclaimer, embeds a tappable {{link title}} which is styled as a hyperlink */
-"REGISTRATION_LEGAL_TOP_MATTER_FORMAT" = "Bu cihazı kaydederek Dedi'nin %@'ni kabul etmiş olursunuz.";
+"REGISTRATION_LEGAL_TOP_MATTER_FORMAT" = "Bu cihazı kaydederek Dedi'nin %@ kabul etmiş olursunuz.";
 
 /* embedded in legal topmatter, styled as a link */
-"REGISTRATION_LEGAL_TOP_MATTER_LINK_TITLE" = "şartlar";
+"REGISTRATION_LEGAL_TOP_MATTER_LINK_TITLE" = "şartlarını";
 
 /* No comment provided by engineer. */
 "REGISTRATION_NON_VALID_NUMBER" = "Bu telefon numarası formatı desteklenmiyor, lütfen destek ile iletişime geç.";
