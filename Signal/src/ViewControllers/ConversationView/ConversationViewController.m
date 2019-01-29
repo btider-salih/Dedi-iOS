@@ -367,6 +367,10 @@ typedef enum : NSUInteger {
                                              selector:@selector(profileWhitelistDidChange:)
                                                  name:kNSNotificationName_ProfileWhitelistDidChange
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(iHaveBeenRemovedFromGroup)
+                                                 name:@"IHaveBeenRemovedFromGroupNotification"
+                                               object:nil];
     // Keyboard events.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -4009,6 +4013,15 @@ typedef enum : NSUInteger {
     if (didAddToProfileWhitelist) {
         [self.conversationViewModel ensureDynamicInteractions];
     }
+}
+
+- (void)iHaveBeenRemovedFromGroup{
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self.inputToolbar clearTextMessageAnimated:YES];
+            [self.navigationController popToRootViewControllerAnimated:true];
+        });
+    });
 }
 
 - (void)voiceMemoGestureDidStart

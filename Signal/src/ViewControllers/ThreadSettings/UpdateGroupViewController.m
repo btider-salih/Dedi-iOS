@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) UIImage *groupAvatar;
 @property (nonatomic, nullable) NSSet<NSString *> *previousMemberRecipientIds;
 @property (nonatomic) NSMutableSet<NSString *> *memberRecipientIds;
+@property (nonatomic) NSMutableSet<NSString *> *memberAdminIds;
 
 @property (nonatomic) BOOL hasUnsavedChanges;
 
@@ -89,6 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
     _avatarViewHelper.delegate = self;
 
     self.memberRecipientIds = [NSMutableSet new];
+    self.memberAdminIds = [NSMutableSet new];
 }
 
 #pragma mark - View Lifecycle
@@ -104,6 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
     self.view.backgroundColor = Theme.backgroundColor;
 
     [self.memberRecipientIds addObjectsFromArray:self.thread.groupModel.groupMemberIds];
+    [self.memberAdminIds addObjectsFromArray:self.thread.groupModel.groupAdminIds];
     self.previousMemberRecipientIds = [NSSet setWithArray:self.thread.groupModel.groupMemberIds];
 
     self.title = NSLocalizedString(@"EDIT_GROUP_DEFAULT_TITLE", @"The navbar title for the 'update group' view.");
@@ -285,6 +288,16 @@ NS_ASSUME_NONNULL_BEGIN
                             }
 
                             [cell configureWithRecipientId:recipientId];
+                            
+                            if (self.memberAdminIds.count > 0){
+                                NSString* adminId = [self.memberAdminIds.allObjects objectAtIndex:0];
+                                if ([recipientId isEqualToString:adminId]){
+                                    [cell setAttributedSubtitle:cell.adminSubtitle];
+                                }else {
+                                    [cell setAttributedSubtitle:nil];
+                                }
+                            }
+                            
                             return cell;
                         }
                         customRowHeight:UITableViewAutomaticDimension
@@ -301,14 +314,31 @@ NS_ASSUME_NONNULL_BEGIN
                                         [weakSelf showUnblockAlertForRecipientId:recipientId];
                                     }
                                 } else {
-                                    [OWSAlerts
-                                        showAlertWithTitle:
-                                            NSLocalizedString(@"UPDATE_GROUP_CANT_REMOVE_MEMBERS_ALERT_TITLE",
-                                                @"Title for alert indicating that group members can't be removed.")
-                                                   message:NSLocalizedString(
-                                                               @"UPDATE_GROUP_CANT_REMOVE_MEMBERS_ALERT_MESSAGE",
-                                                               @"Title for alert indicating that group members can't "
-                                                               @"be removed.")];
+//                                    [OWSAlerts
+//                                        showAlertWithTitle:
+//                                            NSLocalizedString(@"UPDATE_GROUP_CANT_REMOVE_MEMBERS_ALERT_TITLE",
+//                                                @"Title for alert indicating that group members can't be removed.")
+//                                                   message:NSLocalizedString(
+//                                                               @"UPDATE_GROUP_CANT_REMOVE_MEMBERS_ALERT_MESSAGE",
+//                                                               @"Title for alert indicating that group members can't "
+//                                                               @"be removed.")];
+                                    UIAlertController *alertController =
+                                    [UIAlertController alertControllerWithTitle:NSLocalizedString(@"CONFIRM_REMOVE_FROM_GROUP_TITLE", @"Alert title")
+                                                                        message:NSLocalizedString(@"CONFIRM_REMOVE_FROM_GROUP_DESCRIPTION", @"Alert body")
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+                                    
+                                    UIAlertAction *leaveAction = [UIAlertAction
+                                                                  actionWithTitle:NSLocalizedString(@"REMOVE_BUTTON_TITLE", @"Confirmation button within contextual alert")
+                                                                  style:UIAlertActionStyleDestructive
+                                                                  handler:^(UIAlertAction *_Nonnull action) {
+                                                                      [self removeIdFromGroup:recipientId];
+                                                                      [weakSelf removeRecipientId:recipientId];
+                                                                  }];
+                                    
+                                    [alertController addAction:leaveAction];
+                                    [alertController addAction:[OWSAlerts cancelAction]];
+                                    
+                                    [self presentViewController:alertController animated:YES completion:nil];
                                 }
                             } else {
                                 [weakSelf removeRecipientId:recipientId];
@@ -318,6 +348,23 @@ NS_ASSUME_NONNULL_BEGIN
     [contents addSection:section];
 
     self.tableViewController.contents = contents;
+}
+
+- (void)removeIdFromGroup: (NSString*)contactId
+{
+    TSGroupThread *gThread = (TSGroupThread *)self.thread;
+    TSOutgoingMessage *message =
+    [TSOutgoingMessage outgoingMessageInThread:gThread groupMetaMessage:TSGroupMetaMessageUpdate expiresInSeconds:0];
+    NSMutableArray *newGroupMemberIds = [NSMutableArray arrayWithArray:gThread.groupModel.groupMemberIds];
+    [newGroupMemberIds removeObject:contactId];
+    gThread.groupModel.groupMemberIds = newGroupMemberIds;
+    [gThread save];
+    [self.messageSender sendMessage:message success:^{
+            DDLogInfo(@"%@ Successfully removed from group.", self.logTag);
+        } failure:^(NSError * _Nonnull error) {
+            DDLogWarn(@"%@ Failed to remove from group with error: %@", self.logTag, error);
+        }
+    ];
 }
 
 - (void)showUnblockAlertForSignalAccount:(SignalAccount *)signalAccount
@@ -369,6 +416,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *groupName = [self.groupNameTextField.text ows_stripped];
     TSGroupModel *groupModel = [[TSGroupModel alloc] initWithTitle:groupName
                                                          memberIds:self.memberRecipientIds.allObjects
+                                                          adminIds:self.memberAdminIds.allObjects
                                                              image:self.groupAvatar
                                                            groupId:self.thread.groupModel.groupId];
     [self.conversationSettingsViewDelegate groupWasUpdated:groupModel];

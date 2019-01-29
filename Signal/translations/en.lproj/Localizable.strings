@@ -1027,7 +1027,7 @@
 "GROUP_MEMBER_JOINED" = " %@ joined the group. ";
 
 /* No comment provided by engineer. */
-"GROUP_MEMBER_LEFT" = " %@ left the group. ";
+"GROUP_MEMBER_LEFT" = " %@ is no longer in group. ";
 
 /* Button label to add information to an unknown contact */
 "GROUP_MEMBERS_ADD_CONTACT_INFO" = "Add Contact";
@@ -1060,7 +1060,7 @@
 "GROUP_UPDATED" = "Group updated.";
 
 /* No comment provided by engineer. */
-"GROUP_YOU_LEFT" = "You have left the group.";
+"GROUP_YOU_LEFT" = "You are no longer in this group.";
 
 /* Label for 'archived conversations' button. */
 "HOME_VIEW_ARCHIVED_CONVERSATIONS" = "Archived Conversations";

@@ -3851,9 +3851,13 @@ typedef OWSContact * (^OWSContactBlock)(YapDatabaseReadWriteTransaction *transac
         recipientId,
         [TSAccountManager localNumber],
     ] mutableCopy];
+    NSMutableArray<NSString *> *adminIds = [@[
+        recipientId,
+        [TSAccountManager localNumber],
+    ] mutableCopy];
     NSData *groupId = [Randomness generateRandomBytes:kGroupIdLength];
     TSGroupModel *groupModel =
-        [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds image:nil groupId:groupId];
+        [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds adminIds:adminIds image:nil groupId:groupId];
 
     __block TSGroupThread *thread;
     [self.dbConnection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *_Nonnull transaction) {
@@ -4346,9 +4350,13 @@ typedef OWSContact * (^OWSContactBlock)(YapDatabaseReadWriteTransaction *transac
                         recipientId,
                         [TSAccountManager localNumber],
                     ] mutableCopy];
+                    NSMutableArray<NSString *> *adminIds = [@[
+                        recipientId,
+                        [TSAccountManager localNumber],
+                    ] mutableCopy];
                     NSData *groupId = [Randomness generateRandomBytes:kGroupIdLength];
                     TSGroupModel *groupModel =
-                        [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds image:nil groupId:groupId];
+                        [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds adminIds:adminIds image:nil groupId:groupId];
 
                     TSGroupThread *groupThread =
                         [TSGroupThread getOrCreateThreadWithGroupModel:groupModel transaction:transaction];
@@ -4385,9 +4393,13 @@ typedef OWSContact * (^OWSContactBlock)(YapDatabaseReadWriteTransaction *transac
                         recipientId,
                         [TSAccountManager localNumber],
                     ] mutableCopy];
+                    NSMutableArray<NSString *> *adminIds = [@[
+                        recipientId,
+                        [TSAccountManager localNumber],
+                    ] mutableCopy];
                     NSData *groupId = [Randomness generateRandomBytes:kGroupIdLength];
                     TSGroupModel *groupModel =
-                        [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds image:nil groupId:groupId];
+                    [[TSGroupModel alloc] initWithTitle:groupName memberIds:recipientIds adminIds:adminIds image:nil groupId:groupId];
 
                     TSGroupThread *groupThread =
                         [TSGroupThread getOrCreateThreadWithGroupModel:groupModel transaction:transaction];

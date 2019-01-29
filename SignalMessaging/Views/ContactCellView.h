@@ -20,6 +20,8 @@ extern const CGFloat kContactCellAvatarTextMargin;
 
 - (NSAttributedString *)verifiedSubtitle;
 
+- (NSAttributedString *)adminSubtitle;
+
 - (void)setAttributedSubtitle:(nullable NSAttributedString *)attributedSubtitle;
 
 - (BOOL)hasAccessoryText;

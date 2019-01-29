@@ -4809,6 +4809,10 @@ extension SSKProtoAttachmentPointer.SSKProtoAttachmentPointerBuilder {
         if let _value = avatar {
             builder.setAvatar(_value)
         }
+        builder.setAdmins(admins)
+        if hasCanOnlyWriteAdmin {
+            builder.setCanOnlyWriteAdmin(canOnlyWriteAdmin)
+        }
         return builder
     }
 
@@ -4851,6 +4855,20 @@ extension SSKProtoAttachmentPointer.SSKProtoAttachmentPointerBuilder {
             proto.avatar = valueParam.proto
         }
 
+        @objc public func addAdmins(_ valueParam: String) {
+            var items = proto.admins
+            items.append(valueParam)
+            proto.admins = items
+        }
+
+        @objc public func setAdmins(_ wrappedItems: [String]) {
+            proto.admins = wrappedItems
+        }
+
+        @objc public func setCanOnlyWriteAdmin(_ valueParam: Bool) {
+            proto.canOnlyWriteAdmin = valueParam
+        }
+
         @objc public func build() throws -> SSKProtoGroupContext {
             return try SSKProtoGroupContext.parseProto(proto)
         }
@@ -4880,6 +4898,17 @@ extension SSKProtoAttachmentPointer.SSKProtoAttachmentPointerBuilder {
 
     @objc public var members: [String] {
         return proto.members
+    }
+
+    @objc public var admins: [String] {
+        return proto.admins
+    }
+
+    @objc public var canOnlyWriteAdmin: Bool {
+        return proto.canOnlyWriteAdmin
+    }
+    @objc public var hasCanOnlyWriteAdmin: Bool {
+        return proto.hasCanOnlyWriteAdmin
     }
 
     private init(proto: SignalServiceProtos_GroupContext,
@@ -5408,6 +5437,10 @@ extension SSKProtoGroupDetailsAvatar.SSKProtoGroupDetailsAvatarBuilder {
         if hasBlocked {
             builder.setBlocked(blocked)
         }
+        builder.setAdmins(admins)
+        if hasCanOnlyWriteAdmin {
+            builder.setCanOnlyWriteAdmin(canOnlyWriteAdmin)
+        }
         return builder
     }
 
@@ -5459,6 +5492,20 @@ extension SSKProtoGroupDetailsAvatar.SSKProtoGroupDetailsAvatarBuilder {
 
         @objc public func setBlocked(_ valueParam: Bool) {
             proto.blocked = valueParam
+        }
+
+        @objc public func addAdmins(_ valueParam: String) {
+            var items = proto.admins
+            items.append(valueParam)
+            proto.admins = items
+        }
+
+        @objc public func setAdmins(_ wrappedItems: [String]) {
+            proto.admins = wrappedItems
+        }
+
+        @objc public func setCanOnlyWriteAdmin(_ valueParam: Bool) {
+            proto.canOnlyWriteAdmin = valueParam
         }
 
         @objc public func build() throws -> SSKProtoGroupDetails {
@@ -5519,6 +5566,17 @@ extension SSKProtoGroupDetailsAvatar.SSKProtoGroupDetailsAvatarBuilder {
     }
     @objc public var hasBlocked: Bool {
         return proto.hasBlocked
+    }
+
+    @objc public var admins: [String] {
+        return proto.admins
+    }
+
+    @objc public var canOnlyWriteAdmin: Bool {
+        return proto.canOnlyWriteAdmin
+    }
+    @objc public var hasCanOnlyWriteAdmin: Bool {
+        return proto.hasCanOnlyWriteAdmin
     }
 
     private init(proto: SignalServiceProtos_GroupDetails,

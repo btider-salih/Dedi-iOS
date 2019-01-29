@@ -1201,10 +1201,19 @@ NS_ASSUME_NONNULL_BEGIN
 
     if (groupId.length > 0) {
         NSMutableSet *newMemberIds = [NSMutableSet setWithArray:dataMessage.group.members];
+        NSMutableSet *newAdminIds = [NSMutableSet setWithArray:dataMessage.group.admins];
         for (NSString *recipientId in newMemberIds) {
             if (!recipientId.isValidE164) {
                 OWSLogVerbose(
                     @"incoming group update has invalid group member: %@", [self descriptionForEnvelope:envelope]);
+                OWSFailDebug(@"incoming group update has invalid group member");
+                return nil;
+            }
+        }
+        for (NSString *recipientId in newAdminIds) {
+            if (!recipientId.isValidE164) {
+                OWSLogVerbose(
+                              @"incoming group update has invalid group member: %@", [self descriptionForEnvelope:envelope]);
                 OWSFailDebug(@"incoming group update has invalid group member");
                 return nil;
             }
@@ -1214,12 +1223,13 @@ NS_ASSUME_NONNULL_BEGIN
         //
         // We distinguish between the old group state (if any) and the new group state.
         TSGroupThread *_Nullable oldGroupThread = [TSGroupThread threadWithGroupId:groupId transaction:transaction];
-        if (oldGroupThread) {
-            // Don't trust other clients; ensure all known group members remain in the
-            // group unless it is a "quit" message in which case we should only remove
-            // the quiting member below.
-            [newMemberIds addObjectsFromArray:oldGroupThread.groupModel.groupMemberIds];
-        }
+//        if (oldGroupThread) {
+//            // Don't trust other clients; ensure all known group members remain in the
+//            // group unless it is a "quit" message in which case we should only remove
+//            // the quiting member below.
+//            [newMemberIds addObjectsFromArray:oldGroupThread.groupModel.groupMemberIds];
+//            [newAdminIds addObjectsFromArray:oldGroupThread.groupModel.groupAdminIds];
+//        }
 
         switch (dataMessage.group.type) {
             case SSKProtoGroupContextTypeUpdate: {
@@ -1229,6 +1239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
                 TSGroupModel *newGroupModel = [[TSGroupModel alloc] initWithTitle:dataMessage.group.name
                                                                         memberIds:newMemberIds.allObjects
+                                                                         adminIds:newAdminIds.allObjects
                                                                             image:oldGroupThread.groupModel.groupImage
                                                                           groupId:dataMessage.group.id];
                 NSString *updateGroupInfo = [newGroupThread.groupModel getInfoStringAboutUpdateTo:newGroupModel
@@ -1256,6 +1267,7 @@ NS_ASSUME_NONNULL_BEGIN
                     OWSLogWarn(@"ignoring quit group message from unknown group.");
                     return nil;
                 }
+                [newMemberIds addObjectsFromArray:oldGroupThread.groupModel.groupMemberIds];
                 [newMemberIds removeObject:envelope.source];
                 oldGroupThread.groupModel.groupMemberIds = [newMemberIds.allObjects mutableCopy];
                 [oldGroupThread saveWithTransaction:transaction];

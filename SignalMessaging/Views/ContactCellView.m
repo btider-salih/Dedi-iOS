@@ -308,6 +308,22 @@ const CGFloat kContactCellAvatarTextMargin = 12;
     return [text copy];
 }
 
+- (NSAttributedString *)adminSubtitle
+{
+    NSMutableAttributedString *text = [NSMutableAttributedString new];
+    // "user"
+    [text appendAttributedString:[[NSAttributedString alloc]
+                                  initWithString:@"\uf007 "
+                                  attributes:@{
+                                               NSFontAttributeName :
+                                                   [UIFont ows_fontAwesomeFont:self.subtitleLabel.font.pointSize],
+                                               }]];
+    [text appendAttributedString:[[NSAttributedString alloc]
+                                  initWithString:NSLocalizedString(@"GROUP_MANAGEMENT_ADMIN",
+                                                                   @"An indicator for member being administrator of group.")]];
+    return [text copy];
+}
+
 - (void)setAttributedSubtitle:(nullable NSAttributedString *)attributedSubtitle
 {
     self.subtitleLabel.attributedText = attributedSubtitle;

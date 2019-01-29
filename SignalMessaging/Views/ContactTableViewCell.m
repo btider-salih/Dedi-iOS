@@ -87,6 +87,11 @@ NS_ASSUME_NONNULL_BEGIN
     return self.cellView.verifiedSubtitle;
 }
 
+- (NSAttributedString *)adminSubtitle
+{
+    return self.cellView.adminSubtitle;
+}
+
 - (void)setAttributedSubtitle:(nullable NSAttributedString *)attributedSubtitle
 {
     [self.cellView setAttributedSubtitle:attributedSubtitle];

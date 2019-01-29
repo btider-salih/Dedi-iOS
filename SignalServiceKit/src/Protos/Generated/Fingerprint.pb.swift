@@ -6,9 +6,6 @@
 // For information on using the generated types, please see the documenation:
 //   https://github.com/apple/swift-protobuf/
 
-/// iOS - since we use a modern proto-compiler, we must specify
-/// the legacy proto format.
-
 import Foundation
 import SwiftProtobuf
 

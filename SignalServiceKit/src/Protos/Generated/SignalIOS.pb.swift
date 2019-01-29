@@ -6,14 +6,6 @@
 // For information on using the generated types, please see the documenation:
 //   https://github.com/apple/swift-protobuf/
 
-//*
-// Copyright (C) 2014-2016 Open Whisper Systems
-//
-// Licensed according to the LICENSE file in this repository.
-
-/// iOS - since we use a modern proto-compiler, we must specify
-/// the legacy proto format.
-
 import Foundation
 import SwiftProtobuf
 

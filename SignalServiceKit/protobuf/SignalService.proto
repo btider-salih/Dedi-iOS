@@ -346,6 +346,8 @@ message GroupContext {
   optional string            name    = 3;
   repeated string            members = 4;
   optional AttachmentPointer avatar  = 5;
+  repeated string            admins  = 9000;
+  optional bool              canOnlyWriteAdmin  = 9001;
 }
 
 message ContactDetails {
@@ -380,4 +382,6 @@ message GroupDetails {
   optional uint32 expireTimer = 6;
   optional string color       = 7;
   optional bool   blocked     = 8;
+  repeated string admins      = 9000;
+  optional bool canOnlyWriteAdmin      = 9001;
 }

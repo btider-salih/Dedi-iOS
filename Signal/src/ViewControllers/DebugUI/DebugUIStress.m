@@ -533,6 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
             TSGroupModel *groupModel =
                 [[TSGroupModel alloc] initWithTitle:[groupThread.groupModel.groupName stringByAppendingString:@" Copy"]
                                           memberIds:groupThread.groupModel.groupMemberIds
+                                           adminIds:groupThread.groupModel.groupAdminIds
                                               image:groupThread.groupModel.groupImage
                                             groupId:[Randomness generateRandomBytes:kGroupIdLength]];
             thread = [TSGroupThread getOrCreateThreadWithGroupModel:groupModel transaction:transaction];

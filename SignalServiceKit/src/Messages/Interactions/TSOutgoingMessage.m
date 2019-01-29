@@ -911,6 +911,7 @@ NSString *NSStringForOutgoingMessageRecipientState(OWSOutgoingMessageRecipientSt
             }
 
             [groupBuilder setMembers:gThread.groupModel.groupMemberIds];
+            [groupBuilder setAdmins:gThread.groupModel.groupAdminIds];
             [groupBuilder setName:gThread.groupModel.groupName];
         }
         NSError *error;

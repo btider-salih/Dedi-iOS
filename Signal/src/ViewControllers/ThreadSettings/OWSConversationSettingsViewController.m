@@ -544,18 +544,6 @@ const CGFloat kIconViewLength = 24;
             [OWSTableItem
                 itemWithCustomCellBlock:^{
                     UITableViewCell *cell =
-                        [weakSelf disclosureCellWithName:NSLocalizedString(@"EDIT_GROUP_ACTION",
-                                                             @"table cell label in conversation settings")
-                                                iconName:@"table_ic_group_edit"];
-                    cell.userInteractionEnabled = !weakSelf.hasLeftGroup;
-                    return cell;
-                }
-                actionBlock:^{
-                    [weakSelf showUpdateGroupView:UpdateGroupMode_Default];
-                }],
-            [OWSTableItem
-                itemWithCustomCellBlock:^{
-                    UITableViewCell *cell =
                         [weakSelf disclosureCellWithName:NSLocalizedString(@"LIST_GROUP_MEMBERS_ACTION",
                                                              @"table cell label in conversation settings")
                                                 iconName:@"table_ic_group_members"];
@@ -579,10 +567,28 @@ const CGFloat kIconViewLength = 24;
                     [weakSelf didTapLeaveGroup];
                 }],
         ];
+        
+        NSMutableArray* groupItemsMutable = [[NSMutableArray alloc]initWithArray:groupItems];
+        TSGroupThread *gThread = (TSGroupThread *)self.thread;
+        if (gThread.groupModel.groupAdminIds.count > 0) {
+            
+            if ([[self.tsAccountManager localNumber] isEqualToString:[gThread.groupModel.groupAdminIds objectAtIndex:0] ]){
+                OWSTableItem* editGroupItem = [OWSTableItem itemWithCustomCellBlock:^{
+                    return [weakSelf disclosureCellWithName:NSLocalizedString(@"EDIT_GROUP_ACTION",
+                                                                              @"table cell label in conversation settings")
+                                                   iconName:@"table_ic_group_edit"];
+                }
+                                                                        actionBlock:^{
+                                                                            [weakSelf showUpdateGroupView:UpdateGroupMode_Default];
+                                                                        }];
+                
+                [groupItemsMutable insertObject:editGroupItem atIndex:0];
+            }
+        }
 
         [contents addSection:[OWSTableSection sectionWithTitle:NSLocalizedString(@"GROUP_MANAGEMENT_SECTION",
                                                                    @"Conversation settings table section title")
-                                                         items:groupItems]];
+                                                         items:groupItemsMutable]];
     }
 
     // Mute thread section.

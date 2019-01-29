@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) ContactsViewHelper *contactsViewHelper;
 
 @property (nonatomic, nullable) NSSet<NSString *> *memberRecipientIds;
+@property (nonatomic, nullable) NSSet<NSString *> *memberAdminIds;
 
 @end
 
@@ -92,6 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
     OWSAssertDebug(self.thread.groupModel.groupMemberIds);
 
     self.memberRecipientIds = [NSSet setWithArray:self.thread.groupModel.groupMemberIds];
+    self.memberAdminIds = [NSSet setWithArray:self.thread.groupModel.groupAdminIds];
 }
 
 - (void)viewDidLoad
@@ -194,6 +196,15 @@ NS_ASSUME_NONNULL_BEGIN
                                      [cell setAttributedSubtitle:cell.verifiedSubtitle];
                                  } else {
                                      [cell setAttributedSubtitle:nil];
+                                 }
+                                 
+                                 if (self.memberAdminIds.count > 0){
+                                     NSString* adminId = [self.memberAdminIds.allObjects objectAtIndex:0];
+                                     if ([recipientId isEqualToString:adminId]){
+                                         [cell setAttributedSubtitle:cell.adminSubtitle];
+                                     }else {
+                                         [cell setAttributedSubtitle:nil];
+                                     }
                                  }
 
                                  return cell;

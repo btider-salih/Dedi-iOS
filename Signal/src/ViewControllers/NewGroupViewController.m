@@ -510,9 +510,11 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSString *groupName = [self.groupNameTextField.text ows_stripped];
     NSMutableArray<NSString *> *recipientIds = [self.memberRecipientIds.allObjects mutableCopy];
+    NSMutableArray<NSString *> *adminIds = [@[[self.contactsViewHelper localNumber]] mutableCopy];
     [recipientIds addObject:[self.contactsViewHelper localNumber]];
     return [[TSGroupModel alloc] initWithTitle:groupName
                                      memberIds:recipientIds
+                                      adminIds:adminIds
                                          image:self.groupAvatar
                                        groupId:self.groupId];
 }

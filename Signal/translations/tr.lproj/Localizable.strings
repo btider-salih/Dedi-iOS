@@ -808,7 +808,7 @@
 "EMAIL_INVITE_BODY" = "Merhaba,\n\nSon zamanlarda iPhone'umdaki konuşmalarımı gizli tutmak için Dedi kullanıyorum. Size de kurmanızı öneririm, böylelikle mesajlarımızın ve aramalarımızın aramızda kaldığından emin olabiliriz.\n\nDedi, iPhone ve Android için kullanılabilir. Şu adresten edinebilirsiniz: %@ \n\nDedi mevcut mesajlaşma uygulamanız gibi çalışır. Resim ve video gönderebilir, arama yapabilir ve grup sohbetlerine başlayabiliriz. En iyi yanı ise geliştiricileri dahil hiçkimsenin göremeyecek olması!\n\nDedi'i yapan BTİDER hakkında daha fazla bilgi için şu adresi ziyaret edebilirsin: %@";
 
 /* subject of email sent to contacts when inviting to install Dedi */
-"EMAIL_INVITE_SUBJECT" = "Haydi Dedi'e geçelim";
+"EMAIL_INVITE_SUBJECT" = "Haydi Dedi'ye geçelim";
 
 /* Body text an existing user sees when viewing an empty archive */
 "EMPTY_ARCHIVE_TEXT" = "Eski sohbetlerinizi gelen kutunuzdan arşivleyebilirsiniz.";
@@ -1021,7 +1021,7 @@
 "GROUP_MEMBER_JOINED" = "%@ gruba katıldı.";
 
 /* No comment provided by engineer. */
-"GROUP_MEMBER_LEFT" = "%@ gruptan ayrıldı.";
+"GROUP_MEMBER_LEFT" = "%@ artık grupta değil.";
 
 /* Button label to add information to an unknown contact */
 "GROUP_MEMBERS_ADD_CONTACT_INFO" = "Kişi Ekle";
@@ -1054,7 +1054,7 @@
 "GROUP_UPDATED" = "Grup güncellendi.";
 
 /* No comment provided by engineer. */
-"GROUP_YOU_LEFT" = "Gruptan ayrıldınız.";
+"GROUP_YOU_LEFT" = "Artık bu grupta değilsiniz.";
 
 /* Label for 'archived conversations' button. */
 "HOME_VIEW_ARCHIVED_CONVERSATIONS" = "Arşivlenmiş Sohbetler";
@@ -1141,7 +1141,7 @@
 "LEAVE_BUTTON_TITLE" = "Ayrıl";
 
 /* table cell label in conversation settings */
-"LEAVE_GROUP_ACTION" = "Grupdan ayrıl";
+"LEAVE_GROUP_ACTION" = "Gruptan ayrıl";
 
 /* report an invalid linking code */
 "LINK_DEVICE_INVALID_CODE_BODY" = "Bu karekod geçerli değil. Lütfen bağlamak istediğiniz cihazda görüntülenen karekodu taradığınızdan emin olun.";

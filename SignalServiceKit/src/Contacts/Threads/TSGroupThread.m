@@ -26,6 +26,9 @@ NSString *const TSGroupThread_NotificationKey_UniqueId = @"TSGroupThread_Notific
     for (NSString *recipientId in groupModel.groupMemberIds) {
         OWSAssertDebug(recipientId.length > 0);
     }
+    for (NSString *recipientId in groupModel.groupAdminIds) {
+        OWSAssert(recipientId.length > 0);
+    }
 
     NSString *uniqueIdentifier = [[self class] threadIdFromGroupId:groupModel.groupId];
     self = [super initWithUniqueId:uniqueIdentifier];
@@ -47,6 +50,7 @@ NSString *const TSGroupThread_NotificationKey_UniqueId = @"TSGroupThread_Notific
 
     TSGroupModel *groupModel = [[TSGroupModel alloc] initWithTitle:nil
                                                          memberIds:@[ localNumber ]
+                                                          adminIds:@[ localNumber ]
                                                              image:nil
                                                            groupId:groupId];
 
@@ -142,6 +146,16 @@ NSString *const TSGroupThread_NotificationKey_UniqueId = @"TSGroupThread_Notific
     [groupMemberIds removeObject:[TSAccountManager localNumber]];
 
     return [groupMemberIds copy];
+}
+
+- (NSArray<NSString *> *)adminIdentifiers
+{
+    NSMutableArray<NSString *> *groupAdminIds = [self.groupModel.groupAdminIds mutableCopy];
+    if (groupAdminIds == nil) {
+        return @[];
+    }
+    
+    return [groupAdminIds copy];
 }
 
 // @returns all threads to which the recipient is a member.

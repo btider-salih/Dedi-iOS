@@ -6,14 +6,6 @@
 // For information on using the generated types, please see the documenation:
 //   https://github.com/apple/swift-protobuf/
 
-//*
-// Copyright (C) 2014-2016 Open Whisper Systems
-//
-// Licensed according to the LICENSE file in this repository.
-
-/// iOS - since we use a modern proto-compiler, we must specify
-/// the legacy proto format.
-
 import Foundation
 import SwiftProtobuf
 
@@ -1965,6 +1957,20 @@ struct SignalServiceProtos_GroupContext {
   /// Clears the value of `avatar`. Subsequent reads from it will return its default value.
   mutating func clearAvatar() {_uniqueStorage()._avatar = nil}
 
+  var admins: [String] {
+    get {return _storage._admins}
+    set {_uniqueStorage()._admins = newValue}
+  }
+
+  var canOnlyWriteAdmin: Bool {
+    get {return _storage._canOnlyWriteAdmin ?? false}
+    set {_uniqueStorage()._canOnlyWriteAdmin = newValue}
+  }
+  /// Returns true if `canOnlyWriteAdmin` has been explicitly set.
+  var hasCanOnlyWriteAdmin: Bool {return _storage._canOnlyWriteAdmin != nil}
+  /// Clears the value of `canOnlyWriteAdmin`. Subsequent reads from it will return its default value.
+  mutating func clearCanOnlyWriteAdmin() {_uniqueStorage()._canOnlyWriteAdmin = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum TypeEnum: SwiftProtobuf.Enum {
@@ -2204,6 +2210,20 @@ struct SignalServiceProtos_GroupDetails {
   var hasBlocked: Bool {return _storage._blocked != nil}
   /// Clears the value of `blocked`. Subsequent reads from it will return its default value.
   mutating func clearBlocked() {_uniqueStorage()._blocked = nil}
+
+  var admins: [String] {
+    get {return _storage._admins}
+    set {_uniqueStorage()._admins = newValue}
+  }
+
+  var canOnlyWriteAdmin: Bool {
+    get {return _storage._canOnlyWriteAdmin ?? false}
+    set {_uniqueStorage()._canOnlyWriteAdmin = newValue}
+  }
+  /// Returns true if `canOnlyWriteAdmin` has been explicitly set.
+  var hasCanOnlyWriteAdmin: Bool {return _storage._canOnlyWriteAdmin != nil}
+  /// Clears the value of `canOnlyWriteAdmin`. Subsequent reads from it will return its default value.
+  mutating func clearCanOnlyWriteAdmin() {_uniqueStorage()._canOnlyWriteAdmin = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4207,6 +4227,8 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
     3: .same(proto: "name"),
     4: .same(proto: "members"),
     5: .same(proto: "avatar"),
+    9000: .same(proto: "admins"),
+    9001: .same(proto: "canOnlyWriteAdmin"),
   ]
 
   fileprivate class _StorageClass {
@@ -4215,6 +4237,8 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
     var _name: String? = nil
     var _members: [String] = []
     var _avatar: SignalServiceProtos_AttachmentPointer? = nil
+    var _admins: [String] = []
+    var _canOnlyWriteAdmin: Bool? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -4226,6 +4250,8 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
       _name = source._name
       _members = source._members
       _avatar = source._avatar
+      _admins = source._admins
+      _canOnlyWriteAdmin = source._canOnlyWriteAdmin
     }
   }
 
@@ -4246,6 +4272,8 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
         case 3: try decoder.decodeSingularStringField(value: &_storage._name)
         case 4: try decoder.decodeRepeatedStringField(value: &_storage._members)
         case 5: try decoder.decodeSingularMessageField(value: &_storage._avatar)
+        case 9000: try decoder.decodeRepeatedStringField(value: &_storage._admins)
+        case 9001: try decoder.decodeSingularBoolField(value: &_storage._canOnlyWriteAdmin)
         default: break
         }
       }
@@ -4269,6 +4297,12 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._avatar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
+      if !_storage._admins.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._admins, fieldNumber: 9000)
+      }
+      if let v = _storage._canOnlyWriteAdmin {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 9001)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4283,6 +4317,8 @@ extension SignalServiceProtos_GroupContext: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._name != rhs_storage._name {return false}
         if _storage._members != rhs_storage._members {return false}
         if _storage._avatar != rhs_storage._avatar {return false}
+        if _storage._admins != rhs_storage._admins {return false}
+        if _storage._canOnlyWriteAdmin != rhs_storage._canOnlyWriteAdmin {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -4465,6 +4501,8 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
     6: .same(proto: "expireTimer"),
     7: .same(proto: "color"),
     8: .same(proto: "blocked"),
+    9000: .same(proto: "admins"),
+    9001: .same(proto: "canOnlyWriteAdmin"),
   ]
 
   fileprivate class _StorageClass {
@@ -4476,6 +4514,8 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
     var _expireTimer: UInt32? = nil
     var _color: String? = nil
     var _blocked: Bool? = nil
+    var _admins: [String] = []
+    var _canOnlyWriteAdmin: Bool? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -4490,6 +4530,8 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
       _expireTimer = source._expireTimer
       _color = source._color
       _blocked = source._blocked
+      _admins = source._admins
+      _canOnlyWriteAdmin = source._canOnlyWriteAdmin
     }
   }
 
@@ -4513,6 +4555,8 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
         case 6: try decoder.decodeSingularUInt32Field(value: &_storage._expireTimer)
         case 7: try decoder.decodeSingularStringField(value: &_storage._color)
         case 8: try decoder.decodeSingularBoolField(value: &_storage._blocked)
+        case 9000: try decoder.decodeRepeatedStringField(value: &_storage._admins)
+        case 9001: try decoder.decodeSingularBoolField(value: &_storage._canOnlyWriteAdmin)
         default: break
         }
       }
@@ -4545,6 +4589,12 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._blocked {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 8)
       }
+      if !_storage._admins.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._admins, fieldNumber: 9000)
+      }
+      if let v = _storage._canOnlyWriteAdmin {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 9001)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4562,6 +4612,8 @@ extension SignalServiceProtos_GroupDetails: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._expireTimer != rhs_storage._expireTimer {return false}
         if _storage._color != rhs_storage._color {return false}
         if _storage._blocked != rhs_storage._blocked {return false}
+        if _storage._admins != rhs_storage._admins {return false}
+        if _storage._canOnlyWriteAdmin != rhs_storage._canOnlyWriteAdmin {return false}
         return true
       }
       if !storagesAreEqual {return false}

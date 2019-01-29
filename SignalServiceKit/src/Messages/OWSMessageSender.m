@@ -543,7 +543,7 @@ NSString *const OWSMessageSenderRateLimitedException = @"RateLimitedException";
 
         [recipientIds addObjectsFromArray:message.sendingRecipientIds];
         // Only send to members in the latest known group member list.
-        [recipientIds intersectSet:[NSSet setWithArray:groupThread.groupModel.groupMemberIds]];
+//        [recipientIds intersectSet:[NSSet setWithArray:groupThread.groupModel.groupMemberIds]];
 
         if ([recipientIds containsObject:self.tsAccountManager.localNumber]) {
             OWSFailDebug(@"Message send recipients should not include self.");

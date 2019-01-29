@@ -3,6 +3,7 @@
 //
 
 #import "TSGroupModel.h"
+#import "TSAccountManager.h"
 #import "FunctionalUtil.h"
 #import "NSString+SSK.h"
 
@@ -37,6 +38,23 @@ const int32_t kGroupIdLength = 16;
     return self;
 }
 
+- (instancetype)initWithTitle:(nullable NSString *)title
+                    memberIds:(NSArray<NSString *> *)memberIds
+                     adminIds:(NSArray<NSString *> *)adminIds
+                        image:(nullable UIImage *)image
+                      groupId:(NSData *)groupId
+{
+    OWSAssert(memberIds);
+    
+    _groupName              = title;
+    _groupMemberIds         = [memberIds copy];
+    _groupAdminIds          = [adminIds copy];
+    _groupImage = image; // image is stored in DB
+    _groupId                = groupId;
+    
+    return self;
+}
+
 - (nullable instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -48,6 +66,9 @@ const int32_t kGroupIdLength = 16;
     // which causes crashes.
     if (_groupMemberIds == nil) {
         _groupMemberIds = [NSArray new];
+    }
+    if (_groupAdminIds == nil) {
+        _groupAdminIds = [NSArray new];
     }
     OWSAssertDebug(self.groupId.length == kGroupIdLength);
 
@@ -80,6 +101,11 @@ const int32_t kGroupIdLength = 16;
     NSMutableArray *compareMyGroupMemberIds = [NSMutableArray arrayWithArray:_groupMemberIds];
     [compareMyGroupMemberIds removeObjectsInArray:other.groupMemberIds];
     if ([compareMyGroupMemberIds count] > 0) {
+        return NO;
+    }
+    NSMutableArray *compareMyGroupAdminIds = [NSMutableArray arrayWithArray:_groupAdminIds];
+    [compareMyGroupAdminIds removeObjectsInArray:other.groupAdminIds];
+    if ([compareMyGroupAdminIds count] > 0) {
         return NO;
     }
     return YES;
@@ -121,6 +147,10 @@ const int32_t kGroupIdLength = 16;
                                   stringByAppendingString:[NSString
                                                            stringWithFormat:NSLocalizedString(@"GROUP_MEMBER_LEFT", @""),
                                                            [oldMembersNames componentsJoinedByString:@", "]]];
+        BOOL isMyNumberInMembersWhoLeft = [[membersWhoLeft allObjects] containsObject:[TSAccountManager localNumber]];
+        if (isMyNumberInMembersWhoLeft){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"IHaveBeenRemovedFromGroupNotification" object:nil];
+        }
     }
     
     if ([membersWhoJoined count] > 0) {
