@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)autoPinViewToBottomOfViewControllerOrKeyboard:(UIView *)view avoidNotch:(BOOL)avoidNotch
 {
     OWSAssertDebug(view);
-    OWSAssertDebug(!self.bottomLayoutConstraint);
+    //OWSAssertDebug(!self.bottomLayoutConstraint);
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)

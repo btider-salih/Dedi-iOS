@@ -187,9 +187,9 @@ public class SignalAttachment: NSObject {
     static let kMaxFileSizeAnimatedImage = OWSMediaUtils.kMaxFileSizeAnimatedImage
     static let kMaxFileSizeImage = OWSMediaUtils.kMaxFileSizeImage
     @objc
-    static let kMaxFileSizeVideo = OWSMediaUtils.kMaxFileSizeVideo
+    public static let kMaxFileSizeVideo = OWSMediaUtils.kMaxFileSizeVideo
     @objc
-    static let kMaxFileSizeVideoIfLowDataEnabled = UInt(20 * 1024 * 1024)
+    public static let kMaxFileSizeVideoIfLowDataEnabled = UInt(20 * 1024 * 1024)
     static let kMaxFileSizeAudio = OWSMediaUtils.kMaxFileSizeAudio
     static let kMaxFileSizeGeneric = OWSMediaUtils.kMaxFileSizeGeneric
 

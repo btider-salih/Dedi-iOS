@@ -440,6 +440,9 @@
 		45FBC5C81DF8575700E9B410 /* CallKitCallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC59A1DF8575700E9B410 /* CallKitCallManager.swift */; };
 		45FBC5D11DF8592E00E9B410 /* SignalCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FBC5D01DF8592E00E9B410 /* SignalCall.swift */; };
 		490C1EB921FCF30B000AB49A /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C1EB821FCF30B000AB49A /* PromiseKit.framework */; };
+		4987F1C4221C8015001ACD32 /* SKActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987F1C1221C8014001ACD32 /* SKActivityIndicator.swift */; };
+		4987F1C5221C8015001ACD32 /* BulkConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987F1C2221C8014001ACD32 /* BulkConversationViewController.swift */; };
+		4987F1C6221C8015001ACD32 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987F1C3221C8015001ACD32 /* ChatInputContainerView.swift */; };
 		4992815522003B7000C1C349 /* ShareLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992815422003B6F00C1C349 /* ShareLocationManager.swift */; };
 		4992815722003B9800C1C349 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4992815622003B9800C1C349 /* CoreLocation.framework */; };
 		4992815A22004BF200C1C349 /* AutomaticMediaSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4992815922004BF200C1C349 /* AutomaticMediaSettingsViewController.m */; };
@@ -1162,6 +1165,9 @@
 		45FBC59A1DF8575700E9B410 /* CallKitCallManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitCallManager.swift; sourceTree = "<group>"; };
 		45FBC5D01DF8592E00E9B410 /* SignalCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalCall.swift; sourceTree = "<group>"; };
 		490C1EB821FCF30B000AB49A /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4987F1C1221C8014001ACD32 /* SKActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKActivityIndicator.swift; sourceTree = "<group>"; };
+		4987F1C2221C8014001ACD32 /* BulkConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkConversationViewController.swift; sourceTree = "<group>"; };
+		4987F1C3221C8015001ACD32 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
 		4992815422003B6F00C1C349 /* ShareLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationManager.swift; sourceTree = "<group>"; };
 		4992815622003B9800C1C349 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4992815822004BF200C1C349 /* AutomaticMediaSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomaticMediaSettingsViewController.h; sourceTree = "<group>"; };
@@ -1648,6 +1654,9 @@
 				341341ED2187467900192D59 /* ConversationViewModel.h */,
 				341341EE2187467900192D59 /* ConversationViewModel.m */,
 				34B6A904218B4C90007C4606 /* TypingIndicatorInteraction.swift */,
+				4987F1C2221C8014001ACD32 /* BulkConversationViewController.swift */,
+				4987F1C3221C8015001ACD32 /* ChatInputContainerView.swift */,
+				4987F1C1221C8014001ACD32 /* SKActivityIndicator.swift */,
 			);
 			path = ConversationView;
 			sourceTree = "<group>";
@@ -3536,6 +3545,7 @@
 				34330AA31E79686200DF2FB9 /* OWSProgressView.m in Sources */,
 				344825C6211390C800DB4BD8 /* OWSOrphanDataCleaner.m in Sources */,
 				45D2AC02204885170033C692 /* OWS2FAReminderViewController.swift in Sources */,
+				4987F1C6221C8015001ACD32 /* ChatInputContainerView.swift in Sources */,
 				4542DF54208D40AC007B4E76 /* LoadingViewController.swift in Sources */,
 				34D5CCA91EAE3D30005515DB /* AvatarViewHelper.m in Sources */,
 				34D1F0B71F87F8850066283D /* OWSGenericAttachmentView.m in Sources */,
@@ -3587,6 +3597,7 @@
 				34D1F0C01F8EC1760066283D /* MessageRecipientStatusUtils.swift in Sources */,
 				45F659731E1BD99C00444429 /* CallKitCallUIAdaptee.swift in Sources */,
 				34277A5E20751BDC006049F2 /* OWSQuotedMessageView.m in Sources */,
+				4987F1C4221C8015001ACD32 /* SKActivityIndicator.swift in Sources */,
 				458DE9D61DEE3FD00071BB03 /* PeerConnectionClient.swift in Sources */,
 				45DDA6242090CEB500DE97F8 /* ConversationHeaderView.swift in Sources */,
 				4CA5F793211E1F06008C2708 /* Toast.swift in Sources */,
@@ -3598,6 +3609,7 @@
 				34A6C28021E503E700B5B12E /* OWSImagePickerController.swift in Sources */,
 				34DBF004206BD5A500025978 /* OWSBubbleView.m in Sources */,
 				3496957021A301A100DCFE74 /* OWSBackupIO.m in Sources */,
+				4987F1C5221C8015001ACD32 /* BulkConversationViewController.swift in Sources */,
 				34E88D262098C5AE00A608F4 /* ContactViewController.swift in Sources */,
 				34AC0A23211C829F00997B47 /* OWSLabel.m in Sources */,
 				34EA69422194DE8000702471 /* MediaUploadView.swift in Sources */,
