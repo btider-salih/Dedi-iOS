@@ -277,6 +277,24 @@ static NSTimeInterval launchStartedAt;
                                              selector:@selector(registrationLockDidChange:)
                                                  name:NSNotificationName_2FAStateDidChange
                                                object:nil];
+    
+    AutomaticDownloadMode autoDownModeForImages = (AutomaticDownloadMode)[[NSUserDefaults standardUserDefaults] integerForKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_IMAGES"];
+    AutomaticDownloadMode autoDownModeForSound = (AutomaticDownloadMode)[[NSUserDefaults standardUserDefaults] integerForKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_SOUND"];
+    AutomaticDownloadMode autoDownModeForVideos = (AutomaticDownloadMode)[[NSUserDefaults standardUserDefaults] integerForKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_VIDEOS"];
+    AutomaticDownloadMode autoDownModeForDocs = (AutomaticDownloadMode)[[NSUserDefaults standardUserDefaults] integerForKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_DOCS"];
+    
+    if (autoDownModeForImages == Unassigned){
+        [[NSUserDefaults standardUserDefaults] setInteger:(NSInteger)DownloadOnWifiAndCellular forKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_IMAGES"];
+    }
+    if (autoDownModeForSound == Unassigned){
+        [[NSUserDefaults standardUserDefaults] setInteger:(NSInteger)DownloadOnlyOnWifi forKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_SOUND"];
+    }
+    if (autoDownModeForVideos == Unassigned){
+        [[NSUserDefaults standardUserDefaults] setInteger:(NSInteger)DownloadOnlyOnWifi forKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_VIDEOS"];
+    }
+    if (autoDownModeForDocs == Unassigned){
+        [[NSUserDefaults standardUserDefaults] setInteger:(NSInteger)DownloadOnlyOnWifi forKey:@"AUTOMATIC_DOWNLOAD_MODE_FOR_DOCS"];
+    }
 
     OWSLogInfo(@"application: didFinishLaunchingWithOptions completed.");
 

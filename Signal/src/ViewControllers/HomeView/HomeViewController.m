@@ -1008,7 +1008,16 @@ NSString *const kArchivedConversationsReuseIdentifier = @"kArchivedConversations
 
 - (void)didTapLeaveGroupForIndexPath:(NSIndexPath *)indexPath
 {
-    [self showAlertForDeletingConversation:indexPath isGroup:[[self threadForIndexPath:indexPath] isKindOfClass:[TSGroupThread class]]];
+    if ([[self threadForIndexPath:indexPath] isKindOfClass:[TSGroupThread class]]){
+        TSGroupThread* groupThread = (TSGroupThread*) [self threadForIndexPath:indexPath];
+        if ([groupThread.groupModel.groupMemberIds containsObject:[TSAccountManager localNumber]]){
+            [self showAlertForDeletingConversation:indexPath isGroup: YES];
+        }else{
+            [self tableViewCellTappedDelete:indexPath];
+        }
+    }else{
+        [self showAlertForDeletingConversation:indexPath isGroup: NO];
+    }
 }
 
 -(void) showAlertForDeletingConversation: (NSIndexPath *)indexPath isGroup:(BOOL)isGroup{

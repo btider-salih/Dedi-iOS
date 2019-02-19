@@ -86,7 +86,7 @@ public enum TSImageQuality: UInt {
         case .medium:
             return .mediumHigh
         case .compact:
-            return .medium
+            return .mediumLow
         }
     }
 }
@@ -186,7 +186,10 @@ public class SignalAttachment: NSObject {
 
     static let kMaxFileSizeAnimatedImage = OWSMediaUtils.kMaxFileSizeAnimatedImage
     static let kMaxFileSizeImage = OWSMediaUtils.kMaxFileSizeImage
+    @objc
     static let kMaxFileSizeVideo = OWSMediaUtils.kMaxFileSizeVideo
+    @objc
+    static let kMaxFileSizeVideoIfLowDataEnabled = UInt(20 * 1024 * 1024)
     static let kMaxFileSizeAudio = OWSMediaUtils.kMaxFileSizeAudio
     static let kMaxFileSizeGeneric = OWSMediaUtils.kMaxFileSizeGeneric
 
@@ -560,7 +563,9 @@ public class SignalAttachment: NSObject {
                 }
                 let dataSource = DataSourceValue.dataSource(with: data, utiType: dataUTI)
                 // Pasted images _SHOULD _NOT_ be resized, if possible.
-                return attachment(dataSource: dataSource, dataUTI: dataUTI, imageQuality: .medium)
+                let isLowDataModeOn = UserDefaults.standard.bool(forKey: "IS_LOW_DATA_MODE_ON")
+                let quality = isLowDataModeOn ? TSImageQuality.compact : TSImageQuality.medium
+                return attachment(dataSource: dataSource, dataUTI: dataUTI, imageQuality: quality)
             }
         }
         for dataUTI in videoUTISet {
@@ -855,7 +860,7 @@ public class SignalAttachment: NSObject {
         case .medium:
             return dataSource.dataLength() < UInt(1024 * 1024)
         case .compact:
-            return dataSource.dataLength() < UInt(400 * 1024)
+            return dataSource.dataLength() < UInt(300 * 1024)
         }
     }
 
@@ -885,11 +890,11 @@ public class SignalAttachment: NSObject {
         case .mediumHigh:
             return 0.8
         case .medium:
-            return 0.7
+            return 0.75
         case .mediumLow:
-            return 0.6
+            return 0.7
         case .low:
-            return 0.5
+            return 0.6
         }
     }
 
@@ -960,14 +965,17 @@ public class SignalAttachment: NSObject {
             return attachment
         }
 
-        if !isValidOutputVideo(dataSource: dataSource, dataUTI: dataUTI) {
-            owsFailDebug("building video with invalid output, migrate to async API using compressVideoAsMp4")
-        }
+//        if !isValidOutputVideo(dataSource: dataSource, dataUTI: dataUTI) {
+//            owsFailDebug("building video with invalid output, migrate to async API using compressVideoAsMp4")
+//        }
 
+        let isLowDataModeOn = UserDefaults.standard.bool(forKey: "IS_LOW_DATA_MODE_ON")
+        let maxVideoSize = isLowDataModeOn ? kMaxFileSizeVideoIfLowDataEnabled : kMaxFileSizeVideo
+        
         return newAttachment(dataSource: dataSource,
                              dataUTI: dataUTI,
                              validUTISet: videoUTISet,
-                             maxFileSize: kMaxFileSizeVideo)
+                             maxFileSize: maxVideoSize)
     }
 
     public class func copyToVideoTempDir(url fromUrl: URL) throws -> URL {
@@ -1083,7 +1091,9 @@ public class SignalAttachment: NSObject {
             return false
         }
 
-        if dataSource.dataLength() <= kMaxFileSizeVideo {
+        let isLowDataModeOn = UserDefaults.standard.bool(forKey: "IS_LOW_DATA_MODE_ON")
+        let maxVideoSize = isLowDataModeOn ? kMaxFileSizeVideoIfLowDataEnabled : kMaxFileSizeVideo
+        if dataSource.dataLength() <= maxVideoSize {
             return true
         }
         return false

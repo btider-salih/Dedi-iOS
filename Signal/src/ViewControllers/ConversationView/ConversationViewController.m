@@ -373,6 +373,14 @@ typedef enum : NSUInteger {
                                              selector:@selector(iHaveBeenRemovedFromGroup)
                                                  name:@"IHaveBeenRemovedFromGroupNotification"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(maxVideoSendSizeWarningReceived:)
+                                                 name:@"MaxVideoSendingSizeWarning"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(maxVideoDownladSizeExceededReceived:)
+                                                 name:@"MaxDownloadSizeExcededNotification"
+                                               object:nil];
     // Keyboard events.
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -1771,6 +1779,22 @@ typedef enum : NSUInteger {
     }];
 }
 
+//- (void) handleWaitingMediaForDownload:(TSMessage *)message
+//                     attachmentPointer:(TSAttachmentPointer *)attachmentPointer{
+//    OWSAttachmentsProcessor *processor =
+//    [[OWSAttachmentsProcessor alloc] initWithAttachmentPointer:attachmentPointer
+//                                                networkManager:self.networkManager];
+//    [processor fetchAttachmentsForMessage:message
+//                           primaryStorage:self.primaryStorage
+//                                  success:^(TSAttachmentStream *attachmentStream) {
+//                                      DDLogInfo(
+//                                                @"%@ Successfully downloaded enqueued attachment in thread: %@", self.logTag, message.thread);
+//                                  }
+//                                  failure:^(NSError *error) {
+//                                      DDLogWarn(@"%@ Failed to download enqueued message with error: %@", self.logTag, error);
+//                                  }];
+//}
+
 - (void)handleUnsentMessageTap:(TSOutgoingMessage *)message
 {
     UIAlertController *actionSheetController =
@@ -2291,6 +2315,20 @@ typedef enum : NSUInteger {
 
     // Restart failed downloads
     TSMessage *message = (TSMessage *)viewItem.interaction;
+    [self handleFailedDownloadTapForMessage:message];
+}
+
+- (void)didTapOnHoldIncomingAttachment:(id<ConversationViewItem>)viewItem
+                     attachmentPointer:(TSAttachmentPointer *)attachmentPointer
+{
+    OWSAssertIsOnMainThread();
+    OWSAssert(viewItem);
+    OWSAssert(attachmentPointer);
+    
+    // Restart enqueued downloads
+    TSMessage *message = (TSMessage *)viewItem.interaction;
+    [attachmentPointer setState:TSAttachmentPointerStateEnqueued];
+//    [self handleWaitingMediaForDownload:message attachmentPointer:attachmentPointer];
     [self handleFailedDownloadTapForMessage:message];
 }
 
@@ -2866,11 +2904,13 @@ typedef enum : NSUInteger {
 
                                      if (imageFromCamera) {
                                          // "Camera" attachments _SHOULD_ be resized, if possible.
+                                         BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+                                         TSImageQuality quality = isLowDataModeOn ? TSImageQualityCompact : TSImageQualityMedium;
                                          SignalAttachment *attachment =
                                              [SignalAttachment imageAttachmentWithImage:imageFromCamera
                                                                                 dataUTI:(NSString *)kUTTypeJPEG
                                                                                filename:filename
-                                                                           imageQuality:TSImageQualityCompact];
+                                                                           imageQuality:quality];
                                          if (!attachment || [attachment hasError]) {
                                              OWSLogWarn(@"Invalid attachment: %@.",
                                                  attachment ? [attachment errorName] : @"Missing data");
@@ -2901,7 +2941,11 @@ typedef enum : NSUInteger {
 
         // Images chosen from the "attach document" UI should be sent as originals;
         // images chosen from the "attach media" UI should be resized to "medium" size;
-        TSImageQuality imageQuality = (self.isPickingMediaAsDocument ? TSImageQualityOriginal : TSImageQualityMedium);
+        BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+        TSImageQuality imageQuality = isLowDataModeOn ? TSImageQualityCompact : TSImageQualityMedium;
+        if (self.isPickingMediaAsDocument){
+            imageQuality = TSImageQualityOriginal;
+        }
 
         PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
         options.synchronous = YES; // We're only fetching one asset.
@@ -2994,11 +3038,22 @@ typedef enum : NSUInteger {
                           }
 
                           [modalActivityIndicator dismissWithCompletion:^{
+                              BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+                              UInt64 maxVideoSize = isLowDataModeOn ? SignalAttachment.kMaxFileSizeVideoIfLowDataEnabled : SignalAttachment.kMaxFileSizeVideo;
+                              NSString* alertMessage = isLowDataModeOn ? @"MAX_VIDEO_SIZE_FOR_LOW_DATA_ALERT_MESSAGE" : @"MAX_VIDEO_SIZE_ALERT_MESSAGE";
                               if (!attachment || [attachment hasError]) {
                                   OWSLogError(@"Invalid attachment: %@.",
                                       attachment ? [attachment errorName] : @"Missing data");
                                   [self showErrorAlertForAttachment:attachment];
-                              } else {
+                              } else if ([attachment dataLength] > maxVideoSize) {
+                                  //-BTIDER UPDATE- Low Data Mode for Videos
+                                  UIAlertController* controller = [UIAlertController
+                                                                   alertControllerWithTitle: NSLocalizedString(@"MAX_VIDEO_SIZE_ALERT_TITLE", @"Alert title for video size")
+                                                                   message: NSLocalizedString(alertMessage, @"Alert message for video size")
+                                                                   preferredStyle: UIAlertControllerStyleAlert];
+                                  [controller addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"BUTTON_DONE", @"Done") style:UIAlertActionStyleDefault handler:nil]];
+                                  [self presentViewController:controller animated:YES completion:nil];
+                              }else {
                                   [self showApprovalDialogForAttachment:attachment];
                               }
                           }];
@@ -3316,6 +3371,7 @@ typedef enum : NSUInteger {
         NSDate* now = [[NSDate alloc] init];
         if (fabs([now timeIntervalSinceDate:latestLocationSent]) > 3){
             [[NSUserDefaults standardUserDefaults] setObject:now forKey:@"LATEST_LOCATION_SENT_DATE"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self sendLocation];
         }else{
             UIAlertController* controller = [UIAlertController
@@ -3330,8 +3386,24 @@ typedef enum : NSUInteger {
         }
     }else{
         [[NSUserDefaults standardUserDefaults] setObject:[[NSDate alloc] init] forKey:@"LATEST_LOCATION_SENT_DATE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self sendLocation];
     }
+}
+
+- (void)maxVideoSendSizeWarningReceived:(NSNotification*)notification{
+    UIAlertController* alertController = (UIAlertController*) notification.object;
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)maxVideoDownladSizeExceededReceived:(NSNotification*)notification{
+    BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+    NSString* alertMessage = isLowDataModeOn ? NSLocalizedString(@"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_ON", @"") : NSLocalizedString(@"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_OFF", @"");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"MAX_VIDEO_SIZE_ALERT_TITLE", nil) message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"BUTTON_DONE", nil) style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    });
 }
 
 /**

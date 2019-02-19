@@ -15,6 +15,7 @@ extern const int32_t kGroupIdLength;
 @property (nonatomic) NSArray<NSString *> *groupAdminIds;
 @property (nullable, readonly, nonatomic) NSString *groupName;
 @property (readonly, nonatomic) NSData *groupId;
+@property (nonatomic) BOOL canOnlyWriteAdmin;
 
 #if TARGET_OS_IOS
 @property (nullable, nonatomic, strong) UIImage *groupImage;

@@ -7,6 +7,7 @@
 #import "AdvancedSettingsTableViewController.h"
 #import "DebugUITableViewController.h"
 #import "NotificationSettingsViewController.h"
+#import "MediaAndDataUsageSettingsViewController.h"
 #import "OWSBackup.h"
 #import "OWSBackupSettingsViewController.h"
 #import "OWSLinkedDevicesTableViewController.h"
@@ -189,6 +190,11 @@
                                               actionBlock:^{
                                                   [weakSelf showLinkedDevices];
                                               }]];
+    [section addItem:[OWSTableItem disclosureItemWithText:NSLocalizedString(@"MEDIA_AND_DATA_USAGE_TITLE",
+                                                                            @"Menu item and navbar title for the media and data usage")
+                                              actionBlock:^{
+                                                  [weakSelf showMediaAndDataUsage];
+                                              }]];
     [section addItem:[OWSTableItem disclosureItemWithText:NSLocalizedString(@"SETTINGS_ADVANCED_TITLE", @"")
                                               actionBlock:^{
                                                   [weakSelf showAdvanced];
@@ -362,6 +368,12 @@
 - (void)showLinkedDevices
 {
     OWSLinkedDevicesTableViewController *vc = [OWSLinkedDevicesTableViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)showMediaAndDataUsage
+{
+    MediaAndDataUsageSettingsViewController *vc = [[MediaAndDataUsageSettingsViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

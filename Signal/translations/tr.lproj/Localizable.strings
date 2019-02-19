@@ -147,7 +147,7 @@
 "ATTACHMENT_ERROR_COULD_NOT_RESIZE_IMAGE" = "Resim yeniden bouytlandırılamadı.";
 
 /* Attachment error message for attachments whose data exceed file size limits */
-"ATTACHMENT_ERROR_FILE_SIZE_TOO_LARGE" = "Eklenti çok büyük.";
+"ATTACHMENT_ERROR_FILE_SIZE_TOO_LARGE" = "Eklenti çok büyük. Düşük veri modu açıksa kapatarak göndermeyi deneyin.";
 
 /* Attachment error message for attachments with invalid data */
 "ATTACHMENT_ERROR_INVALID_DATA" = "Eklenti geçersiz içerik bulundurmakta.";
@@ -1174,7 +1174,7 @@
 "LINKING_DEVICE_FAILED_TITLE" = "Cihaz Bağlanması Başarısız Oldu";
 
 /* table cell label in conversation settings */
-"LIST_GROUP_MEMBERS_ACTION" = "Grup Üyeleri";
+"LIST_GROUP_MEMBERS_ACTION" = "Grup üyeleri";
 
 /* No comment provided by engineer. */
 "LOGGING_SECTION" = "Günlük";

@@ -13,6 +13,7 @@ enum MessageMetadataViewMode: UInt {
 }
 
 class MessageDetailViewController: OWSViewController, MediaGalleryDataSourceDelegate, OWSMessageBubbleViewDelegate, ContactShareViewHelperDelegate {
+    
 
     // MARK: Properties
 
@@ -695,6 +696,10 @@ class MessageDetailViewController: OWSViewController, MediaGalleryDataSourceDele
     }
 
     func didTapFailedIncomingAttachment(_ viewItem: ConversationViewItem) {
+        // no - op
+    }
+    
+    func didTap(onHoldIncomingAttachment viewItem: ConversationViewItem, attachmentPointer: TSAttachmentPointer) {
         // no - op
     }
 

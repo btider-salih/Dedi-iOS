@@ -34,6 +34,7 @@ const int32_t kGroupIdLength = 16;
     _groupMemberIds         = [memberIds copy];
     _groupImage = image; // image is stored in DB
     _groupId                = groupId;
+    _canOnlyWriteAdmin      = false;
 
     return self;
 }
@@ -51,6 +52,7 @@ const int32_t kGroupIdLength = 16;
     _groupAdminIds          = [adminIds copy];
     _groupImage = image; // image is stored in DB
     _groupId                = groupId;
+    _canOnlyWriteAdmin      = false;
     
     return self;
 }
@@ -70,6 +72,7 @@ const int32_t kGroupIdLength = 16;
     if (_groupAdminIds == nil) {
         _groupAdminIds = [NSArray new];
     }
+    _canOnlyWriteAdmin      = false;
     OWSAssertDebug(self.groupId.length == kGroupIdLength);
 
     return self;
@@ -92,6 +95,9 @@ const int32_t kGroupIdLength = 16;
         return NO;
     }
     if (![_groupName isEqual:other.groupName]) {
+        return NO;
+    }
+    if (_canOnlyWriteAdmin == other.canOnlyWriteAdmin) {
         return NO;
     }
     if (!(_groupImage != nil && other.groupImage != nil &&

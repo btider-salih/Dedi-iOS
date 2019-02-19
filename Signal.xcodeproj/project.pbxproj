@@ -442,6 +442,8 @@
 		490C1EB921FCF30B000AB49A /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490C1EB821FCF30B000AB49A /* PromiseKit.framework */; };
 		4992815522003B7000C1C349 /* ShareLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992815422003B6F00C1C349 /* ShareLocationManager.swift */; };
 		4992815722003B9800C1C349 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4992815622003B9800C1C349 /* CoreLocation.framework */; };
+		4992815A22004BF200C1C349 /* AutomaticMediaSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4992815922004BF200C1C349 /* AutomaticMediaSettingsViewController.m */; };
+		4992815D22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4992815C22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.m */; };
 		4AC4EA13C8A444455DAB351F /* Pods_SignalMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264242150E87D10A357DB07B /* Pods_SignalMessaging.framework */; };
 		4C04F58421C860C50090D0BB /* MantlePerfTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C04F58321C860C50090D0BB /* MantlePerfTest.swift */; };
 		4C090A1B210FD9C7001FD7F9 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C090A1A210FD9C7001FD7F9 /* HapticFeedback.swift */; };
@@ -1162,6 +1164,10 @@
 		490C1EB821FCF30B000AB49A /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4992815422003B6F00C1C349 /* ShareLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareLocationManager.swift; sourceTree = "<group>"; };
 		4992815622003B9800C1C349 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4992815822004BF200C1C349 /* AutomaticMediaSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomaticMediaSettingsViewController.h; sourceTree = "<group>"; };
+		4992815922004BF200C1C349 /* AutomaticMediaSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomaticMediaSettingsViewController.m; sourceTree = "<group>"; };
+		4992815B22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaAndDataUsageSettingsViewController.h; sourceTree = "<group>"; };
+		4992815C22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaAndDataUsageSettingsViewController.m; sourceTree = "<group>"; };
 		4C04F58321C860C50090D0BB /* MantlePerfTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MantlePerfTest.swift; path = Models/MantlePerfTest.swift; sourceTree = "<group>"; };
 		4C090A1A210FD9C7001FD7F9 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticFeedback.swift; path = UserInterface/HapticFeedback.swift; sourceTree = "<group>"; };
 		4C11AA4F20FD59C700351FBD /* MessageStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStatusView.swift; sourceTree = "<group>"; };
@@ -1469,10 +1475,14 @@
 				340FC88C204DAC8C007AEB0F /* AdvancedSettingsTableViewController.m */,
 				340FC880204DAC8C007AEB0F /* AppSettingsViewController.h */,
 				340FC88D204DAC8C007AEB0F /* AppSettingsViewController.m */,
+				4992815822004BF200C1C349 /* AutomaticMediaSettingsViewController.h */,
+				4992815922004BF200C1C349 /* AutomaticMediaSettingsViewController.m */,
 				340FC890204DAC8C007AEB0F /* BlockListViewController.h */,
 				340FC887204DAC8C007AEB0F /* BlockListViewController.m */,
 				340FC889204DAC8C007AEB0F /* DomainFrontingCountryViewController.h */,
 				340FC87D204DAC8C007AEB0F /* DomainFrontingCountryViewController.m */,
+				4992815B22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.h */,
+				4992815C22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.m */,
 				340FC88B204DAC8C007AEB0F /* NotificationSettingsOptionsViewController.h */,
 				340FC87B204DAC8C007AEB0F /* NotificationSettingsOptionsViewController.m */,
 				340FC88A204DAC8C007AEB0F /* NotificationSettingsViewController.h */,
@@ -3493,6 +3503,7 @@
 				34E3EF101EFC2684007F6822 /* DebugUIPage.m in Sources */,
 				34A8B3512190A40E00218A25 /* MediaAlbumCellView.swift in Sources */,
 				34D1F0AE1F867BFC0066283D /* OWSMessageCell.m in Sources */,
+				4992815D22004C2400C1C349 /* MediaAndDataUsageSettingsViewController.m in Sources */,
 				4C4AEC4520EC343B0020E72B /* DismissableTextField.swift in Sources */,
 				4CB5F26720F6E1E2004D1B42 /* MenuActionsViewController.swift in Sources */,
 				3496955E219B605E00DCFE74 /* PhotoLibrary.swift in Sources */,
@@ -3615,6 +3626,7 @@
 				45E5A6991F61E6DE001E4A8A /* MarqueeLabel.swift in Sources */,
 				34D1F0B01F867BFC0066283D /* OWSSystemMessageCell.m in Sources */,
 				45A663C51F92EC760027B59E /* GroupTableViewCell.swift in Sources */,
+				4992815A22004BF200C1C349 /* AutomaticMediaSettingsViewController.m in Sources */,
 				34CA631B2097806F00E526A0 /* OWSContactShareView.m in Sources */,
 				34D1F0861F8678AA0066283D /* ConversationViewController.m in Sources */,
 				3427C64320F500E000EEC730 /* OWSMessageTimerView.m in Sources */,

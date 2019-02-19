@@ -169,14 +169,16 @@ typedef void (^AttachmentDownloadFailure)(NSError *error);
                           failure:(void (^)(NSError *error))failure
 {
     OWSAssertDebug(attachmentPointer);
-
-    [self enqueueJobsForAttachmentStreams:@[]
-                       attachmentPointers:@[
-                           attachmentPointer,
-                       ]
-                                  message:nil
-                                  success:success
-                                  failure:failure];
+    
+    if(attachmentPointer.state != TSAttachmentPointerStateOnHold){
+        [self enqueueJobsForAttachmentStreams:@[]
+                           attachmentPointers:@[
+                                                attachmentPointer,
+                                                ]
+                                      message:nil
+                                      success:success
+                                      failure:failure];
+    }
 }
 
 - (void)enqueueJobsForAttachmentStreams:(NSArray<TSAttachmentStream *> *)attachmentStreamsParam
@@ -320,7 +322,9 @@ typedef void (^AttachmentDownloadFailure)(NSError *error);
 
                 [self.primaryStorage.dbReadWriteConnection
                     readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-                        job.attachmentPointer.mostRecentFailureLocalizedText = error.localizedDescription;
+//                        job.attachmentPointer.mostRecentFailureLocalizedText = error.localizedDescription;
+                        BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+                        job.attachmentPointer.mostRecentFailureLocalizedText = isLowDataModeOn ? NSLocalizedString(@"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_ON", @"") : NSLocalizedString(@"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_OFF", @"");
                         job.attachmentPointer.state = TSAttachmentPointerStateFailed;
                         [job.attachmentPointer saveWithTransaction:transaction];
 
@@ -530,7 +534,8 @@ typedef void (^AttachmentDownloadFailure)(NSError *error);
     manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     // We want to avoid large downloads from a compromised or buggy service.
-    const long kMaxDownloadSize = 150 * 1024 * 1024;
+    const long kMaxDownloadSize = 100 * 1024 * 1024;
+    const long kMaxDownloadSizeIfLowDataEnabled = 20 * 1024 * 1024;
     __block BOOL hasCheckedContentLength = NO;
 
     NSString *tempFilePath =
@@ -568,16 +573,19 @@ typedef void (^AttachmentDownloadFailure)(NSError *error);
             }
 
             void (^abortDownload)(void) = ^{
-                OWSFailDebug(@"Download aborted.");
+//                OWSFailDebug(@"Download aborted.");
                 [task cancel];
             };
 
-            if (progress.totalUnitCount > kMaxDownloadSize || progress.completedUnitCount > kMaxDownloadSize) {
+            BOOL isLowDataModeOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"IS_LOW_DATA_MODE_ON"];
+            const long maxDownloadSize = isLowDataModeOn ? kMaxDownloadSizeIfLowDataEnabled : kMaxDownloadSize;
+            if (progress.totalUnitCount > maxDownloadSize || progress.completedUnitCount > maxDownloadSize) {
                 // A malicious service might send a misleading content length header,
                 // so....
                 //
                 // If the current downloaded bytes or the expected total byes
                 // exceed the max download size, abort the download.
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MaxDownloadSizeExcededNotification" object:nil];
                 OWSLogError(@"Attachment download exceed expected content length: %lld, %lld.",
                     (long long)progress.totalUnitCount,
                     (long long)progress.completedUnitCount);
@@ -624,8 +632,8 @@ typedef void (^AttachmentDownloadFailure)(NSError *error);
             }
 
 
-            if (contentLength.longLongValue > kMaxDownloadSize) {
-                OWSLogError(@"Attachment download content length exceeds max download size.");
+            if (contentLength.longLongValue > maxDownloadSize) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MAX_DOWNLOAD_EXCEEDED_NOTIFICATION" object:nil];
                 abortDownload();
                 return;
             }

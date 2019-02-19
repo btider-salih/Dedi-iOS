@@ -913,6 +913,7 @@ NSString *NSStringForOutgoingMessageRecipientState(OWSOutgoingMessageRecipientSt
             [groupBuilder setMembers:gThread.groupModel.groupMemberIds];
             [groupBuilder setAdmins:gThread.groupModel.groupAdminIds];
             [groupBuilder setName:gThread.groupModel.groupName];
+            [groupBuilder setCanOnlyWriteAdmin:false];
         }
         NSError *error;
         SSKProtoGroupContext *_Nullable groupContextProto = [groupBuilder buildAndReturnError:&error];

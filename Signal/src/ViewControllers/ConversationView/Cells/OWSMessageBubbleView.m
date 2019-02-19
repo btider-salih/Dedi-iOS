@@ -1366,6 +1366,8 @@ const UIDataDetectorTypes kOWSAllowedDataDetectorTypes
 
             if (attachmentPointer.state == TSAttachmentPointerStateFailed) {
                 [self.delegate didTapFailedIncomingAttachment:self.viewItem];
+            }else if (attachmentPointer.state == TSAttachmentPointerStateOnHold){
+                [self.delegate didTapOnHoldIncomingAttachment:self.viewItem attachmentPointer:attachmentPointer];
             }
             break;
         }

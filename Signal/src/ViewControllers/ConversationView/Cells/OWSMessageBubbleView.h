@@ -41,6 +41,9 @@ extern const UIDataDetectorTypes kOWSAllowedDataDetectorTypes;
 
 - (void)didTapFailedIncomingAttachment:(id<ConversationViewItem>)viewItem;
 
+- (void)didTapOnHoldIncomingAttachment:(id<ConversationViewItem>)viewItem
+                     attachmentPointer:(TSAttachmentPointer *)attachmentPointer;
+
 - (void)didTapConversationItem:(id<ConversationViewItem>)viewItem quotedReply:(OWSQuotedReplyModel *)quotedReply;
 - (void)didTapConversationItem:(id<ConversationViewItem>)viewItem
                                  quotedReply:(OWSQuotedReplyModel *)quotedReply
