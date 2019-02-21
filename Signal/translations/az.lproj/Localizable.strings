@@ -2449,3 +2449,94 @@
 
 /* Info message embedding a {{time amount}}, see the *_TIME_AMOUNT strings for context. */
 "YOU_UPDATED_DISAPPEARING_MESSAGES_CONFIGURATION" = "Yox olan ismarışların vaxtını belə quraşdırmısan: %@.";
+
+"GROUP_MANAGEMENT_ADMIN" = "Group Admin";
+
+"CONFIRM_REMOVE_FROM_GROUP_DESCRIPTION" = "The user will no longer be able to send or receive messages in this group.";
+
+"REMOVE_BUTTON_TITLE" = "Remove";
+
+"CONFIRM_REMOVE_FROM_GROUP_TITLE" = "Do you really want to remove this user from group?";
+
+"FAILED_GET_LOCATION_TITLE" = "Location unavailable";
+
+"FAILED_GET_LOCATION_BODY" = "Dedi could not determine your location.";
+
+"FAILED_GET_STATIC_MAP_TITLE" = "Location unavailable";
+
+"FAILED_GET_STATIC_MAP_BODY" = "Dedi needs an internet connection to send your current location";
+
+"MISSING_LOCATION_PERMISSION_BODY" = "Dedi needs to access location services to send your current position. You can grant this permission in the Settings app >> Privacy >> Location Services >> Dedi";
+
+"MISSING_LOCATION_PERMISSION_TITLE" = "Dedi needs to access your location";
+
+"CONFIRM_DELETE_CONVERSATION_TITLE" = "Are you sure to delete this conversation?";
+
+"CONFIRM_DELETE_CONVERSATION_DESCRIPTION" = "All of the messages will be deleted";
+
+"MEDIA_CURRENT_LOCATION_BUTTON" = "Location";
+
+"LOCATION_SEND_FREQUENCY_WARNING_TITLE" = "Warning";
+
+"LOCATION_SEND_FREQUENCY_WARNING_DESCRIPTION" = "You cannot send location frequently";
+
+/* Low Data Usage Strings */
+"MAX_VIDEO_SIZE_ALERT_TITLE" = "Warning";
+
+"MAX_VIDEO_SIZE_ALERT_MESSAGE" = "You cannot send video files larger than 100MB.";
+
+"MAX_VIDEO_SIZE_FOR_LOW_DATA_ALERT_MESSAGE" = "Low data usage is enabled. You cannot send video files larger than 20MB.";
+
+"SETTINGS_LOW_DATA_MODE_HEADER" = "LOW DATA USAGE";
+
+"SETTINGS_LOW_DATA_MODE_HEADER_FOOTER" = "Your photos and videos are delivered at low quality";
+
+"SETTINGS_LOW_DATA_MODE" = "Low Data Usage";
+
+/* Automatic Download Mode Strings */
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_TITLE" = "Automatic Media Download";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_IMAGES" = "Photos";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_SOUND" = "Sound";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_VIDEOS" = "Videos";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_DOCS" = "Documents";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_DESCRIPTION" = "You can set automatic download options for different media types.";
+
+"AUTOMATIC_DOWNLOAD_NEVER" = "Never";
+
+"AUTOMATIC_DOWNLOAD_WIFI_ONLY" = "WiFi";
+
+"AUTOMATIC_DOWNLOAD_WIFI_AND_CELLULAR" = "WiFi and Cellular";
+
+"MEDIA_AND_DATA_USAGE_TITLE" = "Media and Data Usage";
+
+"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_ON" = "Unable to download, attachment is larger than 20MB.";
+
+"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_OFF" = "Unable to download, attachment is larger than 100MB.";
+
+"MAXDOWN_EXCEED_ALERT_TITLE" = "Unable to Download";
+
+"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_ON" = "You cannot download files larger than 20MB when low data mode is turned on.";
+
+"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_OFF" = "You cannot download files larger than 100MB";
+
+"TAP_TO_DOWNLOAD_STATUS_TEXT" = "Tap to Download";
+
+/* Conversation history sending and privacy strings */
+"BULK_MESSAGE_RIGHT_BAR_BUTTON" = "Continue";
+
+"BULK_MESSAGE_ACCESSIBILITY" = "Send multiple messages";
+
+"BULK_MESSAGE_SELECTED_CONTACTS" = "Recipients";
+
+"BULK_MESSAGE_SELECT_CONTACT" = "Selected";
+
+"NEW_BULK_MESSAGE_TITLE" = "Bulk Message";
+
+"SEND_BULK_MESSAGE" = "Send Bulk Message";
+
+"BULK_MESSAGE_USER_MIN_LIMIT_DESC" = "You should select at least two contact to send bulk message.";

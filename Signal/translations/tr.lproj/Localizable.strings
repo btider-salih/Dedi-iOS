@@ -2449,3 +2449,94 @@
 
 /* Info message embedding a {{time amount}}, see the *_TIME_AMOUNT strings for context. */
 "YOU_UPDATED_DISAPPEARING_MESSAGES_CONFIGURATION" = "Kaybolan mesaj süresini %@ olarak ayarladınız.";
+
+"GROUP_MANAGEMENT_ADMIN" = "Grup Yöneticisi";
+
+"CONFIRM_REMOVE_FROM_GROUP_DESCRIPTION" = "Bu kullanıcı grupta artık mesaj gönderip alamayacak.";
+
+"REMOVE_BUTTON_TITLE" = "Çıkar";
+
+"CONFIRM_REMOVE_FROM_GROUP_TITLE" = "Bu kullanıcıyı gruptan çıkarmak istediğinize emin misiniz?";
+
+"FAILED_GET_LOCATION_TITLE" = "Konum bulunamadı";
+
+"FAILED_GET_LOCATION_BODY" = "Dedi konumunuzu bulamadı.";
+
+"FAILED_GET_STATIC_MAP_TITLE" = "Konum algılanamadı";
+
+"FAILED_GET_STATIC_MAP_BODY" = "Mevcut konumunuzu göndermek için internet bağlantısı gerekli";
+
+"MISSING_LOCATION_PERMISSION_BODY" = "Şu anki konumunuzu gönderebilmesi için Dedi'nin konum servislerine erişim izni gerekiyor. Bu izni şuradan verebilirsiniz: Ayarlar >> Gizlilik >> Konum Servisleri >> Dedi";
+
+"MISSING_LOCATION_PERMISSION_TITLE" = "Dedi konumunuza erişmek istiyor";
+
+"CONFIRM_DELETE_CONVERSATION_TITLE" = "Bu konuşmayı silmek istediğinize emin misiniz?";
+
+"CONFIRM_DELETE_CONVERSATION_DESCRIPTION" = "Bu konuşmadaki tüm mesajlar silinecek";
+
+"MEDIA_CURRENT_LOCATION_BUTTON" = "Konum";
+
+"LOCATION_SEND_FREQUENCY_WARNING_TITLE" = "Uyarı";
+
+"LOCATION_SEND_FREQUENCY_WARNING_DESCRIPTION" = "Konumunuzu bu kadar sık gönderemezsiniz.";
+
+/* Low Data Usage Strings */
+"MAX_VIDEO_SIZE_ALERT_TITLE" = "Uyarı";
+
+"MAX_VIDEO_SIZE_ALERT_MESSAGE" = "Video dosyalarınız 100MB\'den büyük olamaz.";
+
+"MAX_VIDEO_SIZE_FOR_LOW_DATA_ALERT_MESSAGE" = "Düşük veri kullanımız açık 20MB\'dan büyük video gönderemezsiniz.";
+
+"SETTINGS_LOW_DATA_MODE_HEADER" = "DÜŞÜK VERİ KULLANIMI";
+
+"SETTINGS_LOW_DATA_MODE_HEADER_FOOTER" = "Verileriniz düşük kalitede gönderilir. İndirilebilir ve yüklenebilir dosya boyutunuz azaltılır.";
+
+"SETTINGS_LOW_DATA_MODE" = "Düşük Veri Kullanımı";
+
+/* Automatic Download Mode Strings */
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_TITLE" = "Otomatik Medya İndirme";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_IMAGES" = "Fotoğraflar";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_SOUND" = "Ses";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_VIDEOS" = "Videolar";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_DOCS" = "Dökümanlar";
+
+"SETTINGS_AUTOMATIC_MEDIA_DOWNLOAD_DESCRIPTION" = "Otomatik indirme seçeneklerini farklı medya türlerine göre ayarlayabilirsiniz.";
+
+"AUTOMATIC_DOWNLOAD_NEVER" = "Hiçbir Zaman";
+
+"AUTOMATIC_DOWNLOAD_WIFI_ONLY" = "WiFi";
+
+"AUTOMATIC_DOWNLOAD_WIFI_AND_CELLULAR" = "WiFi ve Hücresel";
+
+"MEDIA_AND_DATA_USAGE_TITLE" = "Medya ve Veri Kullanımı";
+
+"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_ON" = "İndirilemedi, ek 20MB'dan büyük.";
+
+"MAXDOWN_EXCEED_STATUS_TEXT_LOW_DATA_OFF" = "İndirilemedi, ek 100MB'dan büyük.";
+
+"MAXDOWN_EXCEED_ALERT_TITLE" = "Medya İndirilemedi";
+
+"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_ON" = "Düşük veri modu açıkken 20MB'den büyük dosyaları indiremezsiniz.";
+
+"MAXDOWN_EXCEED_ALERT_TEXT_LOW_DATA_OFF" = "100MB'den büyük dosyaları indiremezsiniz.";
+
+"TAP_TO_DOWNLOAD_STATUS_TEXT" = "İndirmek için Dokunun";
+
+/* Conversation history sending and privacy strings */
+"BULK_MESSAGE_RIGHT_BAR_BUTTON" = "İleri";
+
+"BULK_MESSAGE_ACCESSIBILITY" = "Çoklu mesaj gönder";
+
+"BULK_MESSAGE_SELECTED_CONTACTS" = "Gönderilecek Kişiler";
+
+"BULK_MESSAGE_SELECT_CONTACT" = "Seçildi";
+
+"NEW_BULK_MESSAGE_TITLE" = "Toplu Mesaj";
+
+"SEND_BULK_MESSAGE" = "Toplu Mesaj Gönder";
+
+"BULK_MESSAGE_USER_MIN_LIMIT_DESC" = "Toplu mesaj göndermek için en az iki kişi seçmelisiniz.";
